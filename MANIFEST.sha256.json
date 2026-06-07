@@ -23,6 +23,7 @@
     ],
     "exact_files": [
       ".gitattributes",
+      "AGENTS.md",
       "ROADMAP.md",
       "CONFORMANCE_REPORT.md",
       "COMPATIBILITY_MATRIX.md",
@@ -70,6 +71,10 @@
       "sha256": "cccef2fc2fe9c71073567e17a8b9587bf52105092ba6c7421c2f015f394bfae1"
     },
     {
+      "path": "AGENTS.md",
+      "sha256": "4993f3bec259aa17e3d0ad87a36b8e5f6fca93d6ac894f2afd0665c2c8945069"
+    },
+    {
       "path": "AUDIT_EVIDENCE.md",
       "sha256": "7e680036ea864cfbf296481faa756d26aca80ab5aeec472e0e1929c0aa4d924d"
     },
@@ -107,7 +112,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "a047cdaee8349ba7590fc5282dd3b5c459a04aa5475935d3f48183ce83332867"
+      "sha256": "69acd015bb783e5ab7b4441a7181aa3145236b798dff03811eea8b57fd1b3305"
     },
     {
       "path": "RELEASE_CHECKLIST.md",
@@ -392,6 +397,14 @@
     {
       "path": "docs/WINDOWS_RELEASE_PLAN.md",
       "sha256": "b803583886a30e8bb1cd216f19fb7ac50a874ad49b8467499461246eca05ce40"
+    },
+    {
+      "path": "docs/agents/AGENT_OPERATION_GUIDE.md",
+      "sha256": "0870cc59da98fc01ca2108313e637969675319778ec233083d633acf430b74ba"
+    },
+    {
+      "path": "docs/agents/PUBLIC_REPO_BOUNDARY.md",
+      "sha256": "f0a352da36772edfc4d3cd34111796bbebc123770b30b96fe9cad33d058a2f6b"
     },
     {
       "path": "docs/application/openai/00_APPLICATION_INDEX.md",
@@ -1207,7 +1220,7 @@
     },
     {
       "path": "tooling/manifest.py",
-      "sha256": "5cd85c5d849688345c78af8c41cbb857cb19af80b527cfa3146db3750caf8d7c"
+      "sha256": "e43004d2460e315161baf8ea8aede079f71d80c64e2d84a18cbcd2eef55100a7"
     },
     {
       "path": "tooling/packaging_portability_check.py",

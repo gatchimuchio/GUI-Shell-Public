@@ -32,6 +32,7 @@ GLOB_PATTERNS = [
 
 EXACT_FILES = [
     ".gitattributes",
+    "AGENTS.md",
     "ROADMAP.md",
     "CONFORMANCE_REPORT.md",
     "COMPATIBILITY_MATRIX.md",

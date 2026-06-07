@@ -98,6 +98,16 @@ cd apps/desktop_flutter && flutter test
 dart format --output=none --set-exit-if-changed apps/desktop_flutter
 ```
 
+## For AI Agents / Codex
+
+Agent-facing operating rules are part of the public package:
+
+- `AGENTS.md`
+- `docs/agents/AGENT_OPERATION_GUIDE.md`
+- `docs/agents/PUBLIC_REPO_BOUNDARY.md`
+
+These files define safe edit zones, restricted release/evidence paths, required validation, and public/private boundary expectations for Codex-like agents.
+
 ## Windows Proof Assets
 
 Public Windows evidence summaries live under:
