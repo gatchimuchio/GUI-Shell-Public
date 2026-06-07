@@ -18,11 +18,11 @@
 
 ---
 
-> **TL;DR** — GUI-Shell is a desktop control plane that sits between an operator and one or more local runtimes/agents. Its whole point is a boundary: the UI renders and collects input, but it never *owns* authority. Permissions, approvals, audit, and recovery live behind typed contracts and machine-checked gates. This repository is the public, reviewable slice of that design. It is also built to be **read and extended by other LLMs** — and the fact that an LLM built this repo end to end is the existence proof of that goal.
+> **TL;DR** — GUI-Shell is a desktop control plane that sits between an operator and one or more local runtimes/agents. Its whole point is a boundary: the UI renders and collects input, but it never *owns* authority. Permissions, approvals, audit, and recovery live behind typed contracts and machine-checked gates. This repository is the public, reviewable slice of that design. It is also built to be **read and extended by other LLMs** — and the fact that an LLM built this repo end to end is a bounded demonstration of that goal.
 
 ## Who built this — and why that's the point
 
-This project was built by **a non-engineer**: no programming experience, no software background, not an IT professional, and no working knowledge of English. The code, the contracts, and even this README were produced **by directing an LLM** — over a few weeks of **part-time** work, not a full-time effort.
+This project was built by **a non-programmer / non-software developer**: no programming experience, no software-development background, not an IT professional, and no working knowledge of English. The code, the contracts, and even this README were produced **by directing an LLM** — in less than one month of **part-time** work, not a full-time effort.
 
 That is not a claim that anyone can do this, and it is not a claim that the result is finished. It's a claim about *where the difficulty actually lives*. The hard part of a system like this was never typing the code. The hard part is **refusing to trust unverified output** — yours, the LLM's, the UI's, an adapter's. So the bet of this project is structural, not manual:
 
@@ -31,7 +31,7 @@ That is not a claim that anyone can do this, and it is not a claim that the resu
 
 If that discipline holds, it shouldn't matter much who typed it. That's the thing being demonstrated.
 
-**And building it through an LLM was not incidental — it is the thesis.** GUI-Shell's goal is to be an *LLM-readable responsibility substrate*: a codebase a **different** LLM can read and safely extend. The most direct way to demonstrate that property is to construct the system through an LLM in the first place — from its own contracts, schemas, and conformance rules. If an LLM can build this from the contracts, an LLM can read those contracts and extend it. The construction *is* the existence proof of the design goal. The schemas in `specs`, the checks in `tooling/conformance_tests`, and the standards in `docs/standards` are written to be consumed by agents, not only by people. What that demonstrates is deliberately bounded — an agent can extend the system *within declared contracts*; it is not a claim of broad interoperability or public-standard adoption (see *What is — and is NOT — claimed* below).
+**And building it through an LLM was not incidental — it is the thesis.** GUI-Shell's goal is to be an *LLM-readable responsibility substrate*: a codebase a **different** LLM can read and safely extend. The most direct way to demonstrate that property is to construct the system through an LLM in the first place — from its own contracts, schemas, and conformance rules. If an LLM can build this from the contracts, an LLM can read those contracts and extend it. The construction is a bounded demonstration of the design goal. The schemas in `specs`, the checks in `tooling/conformance_tests`, and the standards in `docs/standards` are written to be consumed by agents, not only by people. What that demonstrates is deliberately bounded — an agent can extend the system *within declared contracts*; it is not a claim of broad interoperability or public-standard adoption (see *What is — and is NOT — claimed* below).
 
 ## What GUI-Shell is
 
@@ -125,7 +125,7 @@ cd native/rust_helper && cargo test
 cd apps/desktop_flutter && flutter analyze && flutter test
 ```
 
-> Conformance currently reports **139** checks on a clean run. (`QUICKSTART.md` / `CLAIM.md` still say *138* — a documentation lag to reconcile, not a regression.)
+> Conformance currently reports **139** checks on a clean run.
 
 ## What is — and is NOT — claimed
 
@@ -144,6 +144,10 @@ cd apps/desktop_flutter && flutter analyze && flutter test
 - ❌ No public-standard adoption, broad third-party interoperability, or installed-product behavior is proven by the LLM-substrate work.
 - ❌ Public proof assets are review material, **not** a replacement for the private release gate.
 
+A GitHub Release tagged as a public review snapshot is not a completed product release. In this repository, completed product release readiness remains gated by `release_blockers.registry.json` and explicit owner GO.
+
+The public proof pack contains redacted review copies derived from measured Windows installed-path evidence. These copies are not canonical release evidence and do not close completed product release blockers in this public repository.
+
 **Open release blockers (6, all active) before any completed product release:**
 
 1. `windows_evidence_provenance_isolation` — isolated Windows source/artifact/evidence provenance must pass machine validation.
@@ -160,6 +164,14 @@ The same registry also tracks the **authority migration** (authority-sensitive l
 Pre-release (`0.1.0-phase0`). Phase B owner-use is complete; Windows-first product release evidence and owner GO are not. The public package is for **code review, architecture review, and safety-boundary review** — and as application context for Codex / agent tooling.
 
 `release_ready` is **not** asserted by this repository.
+
+For a short review path, read:
+
+1. `README.md`
+2. `docs/public/PROJECT_OVERVIEW.md`
+3. `docs/public/SAFETY_AND_RELEASE_GATES.md`
+4. `AGENTS.md`
+5. `release_blockers.registry.json`
 
 ## Getting started
 
@@ -221,11 +233,11 @@ This is why the repo was built by an LLM in the first place: if an agent can con
 
 </div>
 
-> **要点** — GUI-Shell は、オペレーターと1つ以上のローカルランタイム／エージェントの間に立つデスクトップ制御プレーンです。核心は「境界」にあります。UIは描画と入力収集を担うだけで、権限を**保有しません**。権限・承認・監査・復旧は、型付き契約と機械検証ゲートの背後にあります。本リポジトリは、その設計の公開・レビュー可能なスライスです。さらに本基盤は、**別のLLMが読んで拡張できる**ように作られています — このリポジトリをLLMが端から端まで構築できたこと自体が、その設計目標の存在証明です。
+> **要点** — GUI-Shell は、オペレーターと1つ以上のローカルランタイム／エージェントの間に立つデスクトップ制御プレーンです。核心は「境界」にあります。UIは描画と入力収集を担うだけで、権限を**保有しません**。権限・承認・監査・復旧は、型付き契約と機械検証ゲートの背後にあります。本リポジトリは、その設計の公開・レビュー可能なスライスです。さらに本基盤は、**別のLLMが読んで拡張できる**ように作られています — このリポジトリをLLMが端から端まで構築できたことは、その設計目標の限定的な実証です。
 
 ## 誰が作ったか — そしてそれが何を意味するか
 
-本プロジェクトは**非エンジニア**が作りました。プログラミング経験なし、ソフトウェアの素地なし、IT職ではなく、英語の実務知識もありません。コードも契約も、このREADMEさえも、**LLMへの指示だけ**で生成しました。期間は**1ヶ月未満**、しかも専業ではなく**片手間**です。
+本プロジェクトは**プログラマーではない個人**が作りました。プログラミング経験なし、ソフトウェア開発の素地なし、IT職ではなく、英語の実務知識もありません。コードも契約も、このREADMEさえも、**LLMへの指示だけ**で生成しました。期間は**1ヶ月未満**、しかも専業ではなく**片手間**です。
 
 これは「誰でもできる」という主張でも、「完成した」という主張でもありません。**難所が実際にどこにあるか**についての主張です。この種のシステムの難所は、コードを書くことではありませんでした。難所は、**検証されていない出力を信用しないこと**です — 自分の出力も、LLMの出力も、UIも、アダプタも。だからこの賭けは手作業ではなく構造に置かれています。
 
@@ -234,7 +246,7 @@ This is why the repo was built by an LLM in the first place: if an agent can con
 
 その規律が保たれるなら、誰が打鍵したかは大きな問題ではないはずです。実証したいのはそこです。
 
-**そして、LLMだけで作ったことは偶然ではなく、本論そのものです。** GUI-Shell の目標は *LLM可読の責任基盤* であること — **別の**LLMが読んで安全に拡張できるコードベースであることです。その性質を示す最も直接的な方法は、そもそもシステム自体を、自らの契約・スキーマ・適合ルールからLLMに構築させることです。LLMが契約から構築できるなら、LLMはその契約を読んで拡張できます。構築できたこと自体が、設計目標の存在証明です。`specs` のスキーマ、`tooling/conformance_tests` のチェック、`docs/standards` の標準は、人だけでなくエージェントに読まれるために書かれています。ただし実証される範囲は意図的に限定的です — エージェントは*宣言された契約の範囲内で*拡張できるのであり、広範な相互運用や公開標準の採用を主張するものではありません（下記「主張すること / しないこと」を参照）。
+**そして、LLMだけで作ったことは偶然ではなく、本論そのものです。** GUI-Shell の目標は *LLM可読の責任基盤* であること — **別の**LLMが読んで安全に拡張できるコードベースであることです。その性質を示す最も直接的な方法は、そもそもシステム自体を、自らの契約・スキーマ・適合ルールからLLMに構築させることです。LLMが契約から構築できるなら、LLMはその契約を読んで拡張できます。構築できたことは、設計目標の限定的な実証です。`specs` のスキーマ、`tooling/conformance_tests` のチェック、`docs/standards` の標準は、人だけでなくエージェントに読まれるために書かれています。ただし実証される範囲は意図的に限定的です — エージェントは*宣言された契約の範囲内で*拡張できるのであり、広範な相互運用や公開標準の採用を主張するものではありません（下記「主張すること / しないこと」を参照）。
 
 ## GUI-Shell とは
 
@@ -309,7 +321,7 @@ python3 tooling/validate_all.py --python-only
 # linux desktop build smoke: passed ／ linux launch smoke: passed
 ```
 
-> 適合チェックはクリーン実行で現在 **139** 件です。（`QUICKSTART.md` / `CLAIM.md` は *138* のまま — リグレッションではなく、ドキュメントの追従漏れです。）
+> 適合チェックはクリーン実行で現在 **139** 件です。
 
 ## 主張すること / しないこと
 
@@ -327,6 +339,10 @@ python3 tooling/validate_all.py --python-only
 - ❌ モバイルは対象外（`post_v1_scope`）。
 - ❌ LLM基盤の作業は、公開標準の採用・広範な相互運用・インストール済み製品挙動を証明しない。
 - ❌ 公開 proof assets はレビュー材料であり、private リリースゲートの代替**ではない**。
+
+public review snapshot としてタグ付けされた GitHub Release は、完成製品リリースではありません。本リポジトリにおける完成製品リリース可否は、`release_blockers.registry.json` と明示的な owner GO によって別途判定されます。
+
+public proof pack には、実測 Windows installed-path evidence に由来する redacted review copies が含まれます。これらは canonical release evidence ではなく、この公開リポジトリ上の完成製品リリース blockers を閉じません。
 
 **完成製品リリース前に残る release blocker（6件、すべて active）：**
 

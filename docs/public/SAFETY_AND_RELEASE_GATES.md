@@ -31,4 +31,8 @@ Release gate status:
 
 No OpenAI endorsement is claimed.
 
+A GitHub Release tagged as a public review snapshot is not a completed product release. Completed product release readiness remains gated by `release_blockers.registry.json` and explicit owner GO.
+
+Public Windows proof assets are redacted review copies derived from measured Windows installed-path evidence. They are not canonical release evidence and do not close completed product release blockers in this public repository.
+
 Language-policy runtime blockers are tracked through the Rust Security Broker and production IPC path. The public package keeps no-python-runtime and no-ffi-authority assertions visible in validation material.

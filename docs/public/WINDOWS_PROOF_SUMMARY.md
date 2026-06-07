@@ -2,6 +2,8 @@
 
 Windows-first desktop evidence has been collected in the private development repository and converted into a sanitized public proof pack.
 
+The public proof pack contains redacted review copies derived from measured Windows installed-path evidence. These copies are not canonical release evidence and do not close completed product release blockers in this public repository.
+
 Public proof location:
 
 ```text

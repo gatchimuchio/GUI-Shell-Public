@@ -25,7 +25,7 @@ Agents must preserve:
 
 When instructions conflict, follow this order:
 
-1. Explicit user instruction
+1. Explicit owner/user instruction, unless it weakens safety, authority, evidence, release-gate, owner GO, `release_ready`, audit, recovery, public/private boundary, or content-exposure boundaries
 2. This `AGENTS.md`
 3. Repository documentation
 4. Source code and tests
