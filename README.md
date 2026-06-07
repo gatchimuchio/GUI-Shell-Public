@@ -18,7 +18,7 @@
 
 ---
 
-> **TL;DR** — GUI-Shell is a desktop control plane that sits between an operator and one or more local runtimes/agents. Its whole point is a boundary: the UI renders and collects input, but it never *owns* authority. Permissions, approvals, audit, and recovery live behind typed contracts and machine-checked gates. This repository is the public, reviewable slice of that design.
+> **TL;DR** — GUI-Shell is a desktop control plane that sits between an operator and one or more local runtimes/agents. Its whole point is a boundary: the UI renders and collects input, but it never *owns* authority. Permissions, approvals, audit, and recovery live behind typed contracts and machine-checked gates. This repository is the public, reviewable slice of that design. It is also built to be **read and extended by other LLMs** — and the fact that an LLM built this repo end to end is the existence proof of that goal.
 
 ## Who built this — and why that's the point
 
@@ -30,6 +30,8 @@ That is not a claim that anyone can do this, and it is not a claim that the resu
 - everything **not yet proven is listed as a release blocker** — not quietly omitted.
 
 If that discipline holds, it shouldn't matter much who typed it. That's the thing being demonstrated.
+
+**And building it through an LLM was not incidental — it is the thesis.** GUI-Shell's goal is to be an *LLM-readable responsibility substrate*: a codebase a **different** LLM can read and safely extend. The most direct way to demonstrate that property is to construct the system through an LLM in the first place — from its own contracts, schemas, and conformance rules. If an LLM can build this from the contracts, an LLM can read those contracts and extend it. The construction *is* the existence proof of the design goal. The schemas in `specs`, the checks in `tooling/conformance_tests`, and the standards in `docs/standards` are written to be consumed by agents, not only by people. What that demonstrates is deliberately bounded — an agent can extend the system *within declared contracts*; it is not a claim of broad interoperability or public-standard adoption (see *What is — and is NOT — claimed* below).
 
 ## What GUI-Shell is
 
@@ -177,13 +179,23 @@ python3 tooling/validate_all.py --python-only
 
 See `QUICKSTART.md` for the Phase B owner-launch path (`scripts/launch_owner_desktop.sh`), which does **not** assert release readiness.
 
-## For AI agents / Codex
+## Built to be extended by LLMs
 
-GUI-Shell presents an LLM-readable responsibility substrate: schemas, conformance checks, release gates, approval boundaries, audit mapping, and recovery paths are meant to be inspectable and extendable by implementation agents **without treating the LLM as an authority source**. Operating rules live in:
+This is the core design goal, not a footnote. GUI-Shell is an **LLM-readable responsibility substrate**: a stable, machine-readable responsibility structure that an implementation/integration agent can read and extend — connecting new runtimes, tools, services, or adapters through declared contracts, **without reinventing or bypassing** capability, permission, approval, authority-stripping, content-exposure, audit, recovery, or conformance rules.
 
-- `AGENTS.md`
-- `docs/agents/AGENT_OPERATION_GUIDE.md`
-- `docs/agents/PUBLIC_REPO_BOUNDARY.md`
+The role split is explicit:
+
+- **The LLM agent** reads the architecture, standards, schemas, and conformance rules; proposes bounded code/doc changes; connects targets through declared contracts; runs validation and reports evidence.
+- **The LLM agent must not** create authority, approve its own sensitive operations, silently widen permissions, bypass conformance, or convert its own generated output into trusted truth.
+- **The human operator** keeps approval, recovery, and release authority, and remains the final responsibility holder.
+
+Start here:
+
+- `docs/standards/llm-readable-extension-surface.md` — the substrate definition and role model
+- `docs/standards/gui-shell-extended-standard.md` — the extended standard (Phase 0 lock)
+- `AGENTS.md`, `docs/agents/AGENT_OPERATION_GUIDE.md`, `docs/agents/PUBLIC_REPO_BOUNDARY.md` — agent operating rules, safe edit zones, and the public/private boundary
+
+This is why the repo was built by an LLM in the first place: if an agent can construct it from these contracts, an agent can extend it from the same contracts.
 
 ## Roadmap & documents
 
@@ -209,7 +221,7 @@ GUI-Shell presents an LLM-readable responsibility substrate: schemas, conformanc
 
 </div>
 
-> **要点** — GUI-Shell は、オペレーターと1つ以上のローカルランタイム／エージェントの間に立つデスクトップ制御プレーンです。核心は「境界」にあります。UIは描画と入力収集を担うだけで、権限を**保有しません**。権限・承認・監査・復旧は、型付き契約と機械検証ゲートの背後にあります。本リポジトリは、その設計の公開・レビュー可能なスライスです。
+> **要点** — GUI-Shell は、オペレーターと1つ以上のローカルランタイム／エージェントの間に立つデスクトップ制御プレーンです。核心は「境界」にあります。UIは描画と入力収集を担うだけで、権限を**保有しません**。権限・承認・監査・復旧は、型付き契約と機械検証ゲートの背後にあります。本リポジトリは、その設計の公開・レビュー可能なスライスです。さらに本基盤は、**別のLLMが読んで拡張できる**ように作られています — このリポジトリをLLMが端から端まで構築できたこと自体が、その設計目標の存在証明です。
 
 ## 誰が作ったか — そしてそれが何を意味するか
 
@@ -221,6 +233,8 @@ GUI-Shell presents an LLM-readable responsibility substrate: schemas, conformanc
 - **まだ証明できていないものは release blocker として明示**しています — こっそり省略はしません。
 
 その規律が保たれるなら、誰が打鍵したかは大きな問題ではないはずです。実証したいのはそこです。
+
+**そして、LLMだけで作ったことは偶然ではなく、本論そのものです。** GUI-Shell の目標は *LLM可読の責任基盤* であること — **別の**LLMが読んで安全に拡張できるコードベースであることです。その性質を示す最も直接的な方法は、そもそもシステム自体を、自らの契約・スキーマ・適合ルールからLLMに構築させることです。LLMが契約から構築できるなら、LLMはその契約を読んで拡張できます。構築できたこと自体が、設計目標の存在証明です。`specs` のスキーマ、`tooling/conformance_tests` のチェック、`docs/standards` の標準は、人だけでなくエージェントに読まれるために書かれています。ただし実証される範囲は意図的に限定的です — エージェントは*宣言された契約の範囲内で*拡張できるのであり、広範な相互運用や公開標準の採用を主張するものではありません（下記「主張すること / しないこと」を参照）。
 
 ## GUI-Shell とは
 
@@ -281,7 +295,7 @@ GUI-Shell は LLM出力・UI状態・アダプタmeta・memory・log・過去状
 
 ## 検証 & 証跡
 
-以下の数値は、ドキュメントからの転記ではなく、クロちゃんが実際に走らせて得たものです。
+以下の数値は、ドキュメントからの転記ではなく、LLMが実際に走らせて得たものです。
 
 ```bash
 python3 tooling/schema_check/check_schemas.py
@@ -349,13 +363,23 @@ python3 tooling/validate_all.py --python-only
 
 Phase B のオーナー起動パス（`scripts/launch_owner_desktop.sh`）は `QUICKSTART.md` を参照。これは**リリース準備完了を主張しません**。
 
-## AIエージェント / Codex 向け
+## LLMによる拡張を前提に作られている
 
-GUI-Shell は LLM可読の責任基盤を提示します。スキーマ・適合チェック・リリースゲート・承認境界・監査マッピング・復旧経路は、**LLMを権威ソースとして扱うことなく**、実装エージェントが検査・拡張できることを意図しています。運用ルールは以下に。
+これは脚注ではなく中心の設計目標です。GUI-Shell は **LLM可読の責任基盤** です — 実装／統合エージェントが読んで拡張できる、安定した機械可読の責任構造です。新しいランタイム・ツール・サービス・アダプタを宣言契約経由で接続でき、その際に capability・permission・承認・authority除去・content露出・監査・復旧・適合の各ルールを**作り直したり迂回したりしない**ように設計されています。
 
-- `AGENTS.md`
-- `docs/agents/AGENT_OPERATION_GUIDE.md`
-- `docs/agents/PUBLIC_REPO_BOUNDARY.md`
+役割分担は明示的です。
+
+- **LLMエージェント** は、アーキテクチャ・標準・スキーマ・適合ルールを読み、限定的なコード／文書変更を提案し、宣言契約経由で対象を接続し、検証を実行して証跡を報告します。
+- **LLMエージェントがしてはならないこと**：権限の創出、自らの機微操作の承認、permission の暗黙拡大、適合の迂回、自らの生成物を信頼真実に変換すること。
+- **人間のオペレーター** が承認・復旧・リリース権限を保持し、最終責任者であり続けます。
+
+ここから読み始めてください。
+
+- `docs/standards/llm-readable-extension-surface.md` — 基盤の定義と役割モデル
+- `docs/standards/gui-shell-extended-standard.md` — 拡張標準（Phase 0 ロック）
+- `AGENTS.md`, `docs/agents/AGENT_OPERATION_GUIDE.md`, `docs/agents/PUBLIC_REPO_BOUNDARY.md` — エージェント運用ルール、安全編集ゾーン、public/private 境界
+
+これこそが、そもそもこのリポジトリをLLMに構築させた理由です。エージェントがこれらの契約から構築できるなら、エージェントは同じ契約から拡張できます。
 
 ## ロードマップ & ドキュメント
 
