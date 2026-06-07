@@ -1,0 +1,14 @@
+{
+  "broker_id": "gui-shell-rust-broker",
+  "status": "ready",
+  "boundary_role": "rust_security_broker_candidate",
+  "authority_cutover_status": "active",
+  "command_dispatch_enabled": false,
+  "audit_append_enabled": true,
+  "audit_persistence": "persistent_audit_store",
+  "replay_persistence": "persistent_session_store",
+  "session_persistence": "persistent_session_store",
+  "persistence_required": true,
+  "persistence_ready": true,
+  "evidence_source": "LIVE_RUNTIME"
+}

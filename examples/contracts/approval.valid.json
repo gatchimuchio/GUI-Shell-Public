@@ -1,0 +1,34 @@
+{
+  "approval_id": "approval-1",
+  "runtime_id": "blue_tanuki",
+  "operation": "filesystem.write",
+  "target_scope": "workspace",
+  "status": "pending",
+  "content_visibility": "redacted",
+  "payload_hash": "sha256:5c5b691c760a352b7eb430f981091e8afa14d833eb74a654c12231146dc9d315",
+  "summary": "Write one file in the workspace.",
+  "redacted_payload": {
+    "path": "notes/today.md",
+    "content": "[redacted]"
+  },
+  "full_payload": {
+    "path": "notes/today.md",
+    "content": "hello"
+  },
+  "editable_fields": [
+    "path"
+  ],
+  "sealed_fields": [
+    "runtime_id"
+  ],
+  "hidden_fields": [
+    "credential"
+  ],
+  "sacred_fields": [
+    "authority_context"
+  ],
+  "authority_fields": [
+    "actor",
+    "permission_id"
+  ]
+}

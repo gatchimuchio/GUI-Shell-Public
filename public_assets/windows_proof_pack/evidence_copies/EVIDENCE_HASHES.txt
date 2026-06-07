@@ -1,0 +1,10 @@
+# Evidence Hashes
+
+Raw private evidence source hashes are listed for traceability; raw files are not published here.
+
+raw_source/windows_installed_smoke.json: sha256:6c444e4acf413c2d2b700c798321489d74c43324c2abe887c4b09b68d225f6e2
+raw_source/release_runtime_assertions.json: sha256:f756122fa499f948c3a48b46b236cf072f08c30cbae35a6ac1475638704a9205
+public/evidence_copies/windows_installed_smoke.redacted.json: sha256:c257cebb4b35d7f8f89d50438fc90337c18e87ee028aec0871f750906fc4c0b3
+public/evidence_copies/release_runtime_assertions.redacted.json: sha256:587659d05ddc3d416f85f744b4850481dfdbc26ab0023d9b2537670cb47bb511
+public/logs/validation.log: sha256:32749d5395e46c2a630c72a95254ead1580fc26c5fd6f2dbdf1ae8c3a69d304e
+public/logs/build_validation.log: sha256:84e0bd70b7d2a0fbb73a7268602e046d1ed6008fdd6b43271d558fb3abdcf674

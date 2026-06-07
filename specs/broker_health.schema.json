@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/gui-shell/schemas/broker_health.schema.json",
+  "title": "BrokerHealth",
+  "type": "object",
+  "required": [
+    "broker_id",
+    "status",
+    "boundary_role",
+    "authority_cutover_status",
+    "command_dispatch_enabled",
+    "audit_append_enabled",
+    "audit_persistence",
+    "replay_persistence",
+    "session_persistence",
+    "persistence_required",
+    "persistence_ready",
+    "evidence_source"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "broker_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "ready",
+        "degraded",
+        "suspend"
+      ]
+    },
+    "boundary_role": {
+      "type": "string",
+      "enum": [
+        "rust_security_broker_candidate"
+      ]
+    },
+    "authority_cutover_status": {
+      "type": "string",
+      "enum": [
+        "not_active"
+      ]
+    },
+    "command_dispatch_enabled": {
+      "type": "boolean",
+      "const": false
+    },
+    "audit_append_enabled": {
+      "type": "boolean",
+      "const": true
+    },
+    "audit_persistence": {
+      "type": "string",
+      "enum": [
+        "in_memory_skeleton",
+        "durable_file_store"
+      ]
+    },
+    "replay_persistence": {
+      "type": "string",
+      "enum": [
+        "in_memory_session_only",
+        "durable_file_store"
+      ]
+    },
+    "session_persistence": {
+      "type": "string",
+      "enum": [
+        "in_memory_session_only",
+        "durable_file_store"
+      ]
+    },
+    "persistence_required": {
+      "type": "boolean"
+    },
+    "persistence_ready": {
+      "type": "boolean"
+    },
+    "evidence_source": {
+      "type": "string",
+      "enum": [
+        "LIVE_RUNTIME",
+        "INTERNAL_STATE"
+      ]
+    }
+  }
+}

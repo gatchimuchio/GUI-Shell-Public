@@ -1,0 +1,15 @@
+{
+  "adapter_id": "bad_authority_adapter",
+  "runtime_id": "runtime",
+  "contract_version": "v0.1",
+  "transport": "http",
+  "authority_strip": false,
+  "declared_capabilities": [
+    "runtime.read"
+  ],
+  "metadata": {
+    "permission_grant": "filesystem.write",
+    "permission_override": "all",
+    "trust_level": "root"
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/gui-shell/schemas/approval.schema.json",
+  "title": "Approval",
+  "type": "object",
+  "required": [
+    "approval_id",
+    "runtime_id",
+    "operation",
+    "target_scope",
+    "status",
+    "content_visibility",
+    "payload_hash",
+    "editable_fields"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "approval_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "runtime_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "operation": {
+      "type": "string",
+      "minLength": 1
+    },
+    "target_scope": {
+      "type": "string",
+      "minLength": 1
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "approved",
+        "rejected",
+        "expired",
+        "requires_validation"
+      ]
+    },
+    "content_visibility": {
+      "type": "string",
+      "enum": [
+        "none",
+        "hash_only",
+        "summary",
+        "redacted",
+        "full"
+      ]
+    },
+    "payload_hash": {
+      "type": "string",
+      "pattern": "^sha256:[a-f0-9]{64}$"
+    },
+    "summary": {
+      "type": "string"
+    },
+    "redacted_payload": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "full_payload": {
+      "type": "object",
+      "description": "Storage-only full payload. UI projection must not expose this unless content_visibility=full.",
+      "additionalProperties": true
+    },
+    "editable_fields": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Only these non-authority fields may be edited."
+    },
+    "sealed_fields": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "hidden_fields": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Fields that must not be shown or edited by UI."
+    },
+    "sacred_fields": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Domain-critical fields that must not be edited by UI or adapter."
+    },
+    "authority_fields": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

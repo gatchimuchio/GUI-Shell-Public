@@ -1,0 +1,1249 @@
+{
+  "version": 1,
+  "hash": "sha256",
+  "self_reference_policy": "MANIFEST.sha256.json is excluded from its own file list.",
+  "coverage": {
+    "glob_patterns": [
+      "packages/shell_core/**/*.py",
+      "tooling/**/*.py",
+      "schemas/**/*.json",
+      "specs/**/*.json",
+      "examples/**/*.json",
+      "apps/desktop_flutter/lib/**/*.dart",
+      "apps/desktop_flutter/test/**/*.dart",
+      "native/rust_helper/Cargo.toml",
+      "native/rust_helper/Cargo.lock",
+      "native/rust_helper/src/**/*.rs",
+      "native/rust_helper/tests/**/*.rs",
+      "installer/**/*.py",
+      "installer/**/*.ps1",
+      "installer/**/*.md",
+      "scripts/**/*",
+      "docs/**/*.md"
+    ],
+    "exact_files": [
+      ".gitattributes",
+      "ROADMAP.md",
+      "CONFORMANCE_REPORT.md",
+      "COMPATIBILITY_MATRIX.md",
+      "apps/desktop_flutter/pubspec.yaml",
+      "README.md",
+      "QUICKSTART.md",
+      "CHANGELOG.md",
+      "CLAIM.md",
+      "RELEASE_CHECKLIST.md",
+      "release_blockers.registry.json",
+      "AUDIT_EVIDENCE.md",
+      "INSTALLER_STATUS.md",
+      "SECURITY_REVIEW.md",
+      "SECURITY.md",
+      "TROUBLESHOOTING.md",
+      "MOBILE_STATUS.md"
+    ],
+    "excluded_paths": [
+      "MANIFEST.sha256.json",
+      "apps/desktop_flutter/flutter_01.log",
+      "apps/mobile_flutter/pubspec.lock"
+    ],
+    "excluded_directory_names": [
+      ".dart_tool",
+      ".git",
+      ".idea",
+      "__pycache__",
+      "build",
+      "ephemeral",
+      "release_evidence",
+      "target"
+    ]
+  },
+  "files": [
+    {
+      "path": ".gitattributes",
+      "sha256": "a96f7ee8d0feacee47f68cbfc27d1e0a2c64eb26a49df9eda3e9dabe3be09197"
+    },
+    {
+      "path": ".github/workflows/validation.yml",
+      "sha256": "86571595bdd39cd25cf1c040f35824e4f79fc45f9108c55a40521dfa4296c294"
+    },
+    {
+      "path": ".gitignore",
+      "sha256": "cccef2fc2fe9c71073567e17a8b9587bf52105092ba6c7421c2f015f394bfae1"
+    },
+    {
+      "path": "AUDIT_EVIDENCE.md",
+      "sha256": "7e680036ea864cfbf296481faa756d26aca80ab5aeec472e0e1929c0aa4d924d"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "sha256": "8a38a33e9899bcd757574ec83754080fe414af58fb69104efcffad276aae5cc6"
+    },
+    {
+      "path": "CLAIM.md",
+      "sha256": "56531acbcb7ceee1e01a27e447528d30c3bd8787abae01f0094783eaf78a51ac"
+    },
+    {
+      "path": "COMPATIBILITY_MATRIX.md",
+      "sha256": "e2cc5c79b0afd7dc59bd33ab341d9f66e971ffa65e9cc29ba851041ff8a2bd3f"
+    },
+    {
+      "path": "CONFORMANCE_REPORT.md",
+      "sha256": "dbec4d2c0147a614f9432ff978216e56481ff78da4f12928c095e5128bafecba"
+    },
+    {
+      "path": "INSTALLER_STATUS.md",
+      "sha256": "4c2cc7075a032000e4ec07f45b60a9e0ae170ac01886ca1b54207d5c928c9ccc"
+    },
+    {
+      "path": "LICENSE",
+      "sha256": "44b5106631e1551b963c767d73ad38949c6890e47b9a17e6543546cfadf64f96"
+    },
+    {
+      "path": "MOBILE_STATUS.md",
+      "sha256": "67c6e56d440155005ea0480d17c363769227639cd2a15f48877c9a36ff8f1b95"
+    },
+    {
+      "path": "QUICKSTART.md",
+      "sha256": "9b660ee40f1b0e1080f722a3f2658c52c40c1e7d14fb5158295ab9cc47ced4ba"
+    },
+    {
+      "path": "README.md",
+      "sha256": "a047cdaee8349ba7590fc5282dd3b5c459a04aa5475935d3f48183ce83332867"
+    },
+    {
+      "path": "RELEASE_CHECKLIST.md",
+      "sha256": "e6c99b291e09063dd77ff018338f902d188343a8cb642adf40944fa31e44c851"
+    },
+    {
+      "path": "ROADMAP.md",
+      "sha256": "321f3b0ccf80f632b3f83d1ed3841df96f1fc5d3bba43abaaaa0cea61c64a8b5"
+    },
+    {
+      "path": "SECURITY.md",
+      "sha256": "fac8299c8ca01ccec59c37e50918f07bcc9ef289a904ecfb3d285006e8dfa0a4"
+    },
+    {
+      "path": "SECURITY_REVIEW.md",
+      "sha256": "667b428f2bc66432b2627f9b7e8082c3e92b3bbdbbc28a7f6caa3cc84c0740c5"
+    },
+    {
+      "path": "TROUBLESHOOTING.md",
+      "sha256": "17b3b8ee97e0d917fa8497303a65b212efe520d583575a4af571ce91b19b32d5"
+    },
+    {
+      "path": "apps/desktop_flutter/.gitignore",
+      "sha256": "4a8d984279954e0461e0ffef9b9e7455340a0a762f227c01065a53482a83a4f1"
+    },
+    {
+      "path": "apps/desktop_flutter/.metadata",
+      "sha256": "da4020829f25fbb9b12e5feaf0361ed4e7caef650ee4d1a27b9bb5a2501bbbde"
+    },
+    {
+      "path": "apps/desktop_flutter/README.md",
+      "sha256": "0f332b4afda22881afb135c9a7f7d4a3e5f04f5fc1be13942bc9fbbe52090609"
+    },
+    {
+      "path": "apps/desktop_flutter/analysis_options.yaml",
+      "sha256": "e0ea485cfdbc3e12b93efb8679a5ea73ebfe20ea4ca0c473dc594fc2fb274ed5"
+    },
+    {
+      "path": "apps/desktop_flutter/lib/main.dart",
+      "sha256": "c50eb82f2a3885b9d1042a31bc3f8c18b9dfe008316e5e7327c976d94dce3127"
+    },
+    {
+      "path": "apps/desktop_flutter/lib/models/generated_contracts.dart",
+      "sha256": "b086c52e6f208a3ec6d14b2de85ae0b0c476c5d3ed9b825ae8c796fbcdf2026b"
+    },
+    {
+      "path": "apps/desktop_flutter/lib/screens/agent_center.dart",
+      "sha256": "923f7606cf7e9b1f71ee145cd0814c3441803c72111e07acfde7fdec7810ace9"
+    },
+    {
+      "path": "apps/desktop_flutter/lib/screens/approval_center.dart",
+      "sha256": "dfec95493dfcf570ca2f47f517960b921f5df11bd9ab512870cad5a6ca3ae15d"
+    },
+    {
+      "path": "apps/desktop_flutter/lib/screens/audit_viewer.dart",
+      "sha256": "f3491c8bb97b5f9b04635486037e0633cbb3c7a8114b6c87b161d9857df3bd7d"
+    },
+    {
+      "path": "apps/desktop_flutter/lib/screens/authority_map.dart",
+      "sha256": "f8394ed170bd45c5891304858afa1e90c456f856e478e1afff5678dcf10db06c"
+    },
+    {
+      "path": "apps/desktop_flutter/lib/screens/dashboard.dart",
+      "sha256": "ee4bd9b91bc849de8c11f4ea1363ff454f0d5f829ab57dfdab3b88c19988925c"
+    },
+    {
+      "path": "apps/desktop_flutter/lib/screens/evidence_center.dart",
+      "sha256": "3527ddfa1c178f91df0df7994777c1ffa5b78f6b2bdd2bc5d0b2ef0f16bbddf5"
+    },
+    {
+      "path": "apps/desktop_flutter/lib/screens/permission_center.dart",
+      "sha256": "91f0111d7b70f2dba5b762899899f8ac6576eefe9d6421255dcb92774a5abab6"
+    },
+    {
+      "path": "apps/desktop_flutter/lib/screens/problems_panel.dart",
+      "sha256": "7b80906577e4a9aecc8b50abca1bb023ff5a15684199dce6bea7a0975d6ebfd7"
+    },
+    {
+      "path": "apps/desktop_flutter/lib/screens/recovery_center.dart",
+      "sha256": "0825d93dc760ebb090e772e316d6bdd103ea302b9499473a85a1892e1b4c8e33"
+    },
+    {
+      "path": "apps/desktop_flutter/lib/screens/runtime_center.dart",
+      "sha256": "c9c16ce8f743bfb4498a2db31ec9290018b68ccd02950202787a876867cba0fb"
+    },
+    {
+      "path": "apps/desktop_flutter/lib/screens/settings.dart",
+      "sha256": "c1188a4d455b4d4ba3e0d925c2dd86d76b3200a50ac42ee4e5caf8a0cbb9149e"
+    },
+    {
+      "path": "apps/desktop_flutter/lib/screens/setup_doctor.dart",
+      "sha256": "2a4e3113d507a5723b47351ab1024e15f001711d8d4d76bee411b16c1faeebd6"
+    },
+    {
+      "path": "apps/desktop_flutter/lib/screens/shared.dart",
+      "sha256": "32f10b8ac318eb8fbda37ab881b7606a33b8d30a2501f592c8e61b94a1b94aaa"
+    },
+    {
+      "path": "apps/desktop_flutter/lib/screens/trust_center.dart",
+      "sha256": "b9df2a8fe55ee91e0d6c43de7bffae860459b177de2f86c21252506965ac913e"
+    },
+    {
+      "path": "apps/desktop_flutter/lib/services/broker_client.dart",
+      "sha256": "9359bdf71812a20c79c787dddffad9fc461c47cd283482ac0c109149743fc9b8"
+    },
+    {
+      "path": "apps/desktop_flutter/lib/services/setup_doctor_export.dart",
+      "sha256": "9834d606d4c12d743a1a51eba2c6ef7dfd174c5bd62350e2591593cf358da694"
+    },
+    {
+      "path": "apps/desktop_flutter/lib/services/shell_core_client.dart",
+      "sha256": "05c75dddb9ba7fb929757f3a712f0d973b5fa689b8b60e7311627bebd10bc086"
+    },
+    {
+      "path": "apps/desktop_flutter/lib/services/surface_semantics_export.dart",
+      "sha256": "7bb753be890b681cafad7022366acc1ba68a56aa5f4e5e149d1bcb3914c75a17"
+    },
+    {
+      "path": "apps/desktop_flutter/linux/.gitignore",
+      "sha256": "5ded4f1a9d10d34bf6ee5beb0711d88ee2ef07b0f07ace9ed77935a246e8eb82"
+    },
+    {
+      "path": "apps/desktop_flutter/linux/CMakeLists.txt",
+      "sha256": "c453c88c3360e132f878bffeb9ccabff670652fcf4415845b89b999961945ffd"
+    },
+    {
+      "path": "apps/desktop_flutter/linux/flutter/CMakeLists.txt",
+      "sha256": "787189e2623313cfee590a0b553338eb9fc68b3af922ddd77c5d39c75f989aeb"
+    },
+    {
+      "path": "apps/desktop_flutter/linux/flutter/generated_plugin_registrant.cc",
+      "sha256": "7861b227b10a10cc1d7643f82a246b7db35b503f2d9ff1d3c906136e6c260dce"
+    },
+    {
+      "path": "apps/desktop_flutter/linux/flutter/generated_plugin_registrant.h",
+      "sha256": "00f93bb5b1faefdede8f6065df327522900fb0b8efee86bacf424fd947ed14bb"
+    },
+    {
+      "path": "apps/desktop_flutter/linux/flutter/generated_plugins.cmake",
+      "sha256": "d5aaa52ef8594d3128b35b6619c6a353e1be5f3c5a63a9c29c0a32b424e91952"
+    },
+    {
+      "path": "apps/desktop_flutter/linux/runner/CMakeLists.txt",
+      "sha256": "8cdcfd911e770fd7d511c97c7bce6559486a815352a47c953f7ef632e236d2cc"
+    },
+    {
+      "path": "apps/desktop_flutter/linux/runner/main.cc",
+      "sha256": "ea23f7cdf74091d63bba29ef60486370b766157b848f0cfe62bd8b1c1695a0c1"
+    },
+    {
+      "path": "apps/desktop_flutter/linux/runner/my_application.cc",
+      "sha256": "bc33251a899853ce4757b610d6aa5c29c51cd702352ad7ce187d1bc326e58f17"
+    },
+    {
+      "path": "apps/desktop_flutter/linux/runner/my_application.h",
+      "sha256": "a4218d7ac0db8a9a6716daf216b2d4fc6bdc7ac647e3183078b2c962ebdfcf70"
+    },
+    {
+      "path": "apps/desktop_flutter/pubspec.lock",
+      "sha256": "6575dd70c149c5422461b8508e356a30d682160a227fba6c1567b96787a2384b"
+    },
+    {
+      "path": "apps/desktop_flutter/pubspec.yaml",
+      "sha256": "90b0add1a3f7891b345316a7c3b0fa601fdcb3286efc94ff740ab7fbfa377610"
+    },
+    {
+      "path": "apps/desktop_flutter/test/broker_client_payload_hash_test.dart",
+      "sha256": "6aed4cc35164d973770e91581fdb43956bf707c1aba7768ec28eab38f69434c9"
+    },
+    {
+      "path": "apps/desktop_flutter/test/widget_test.dart",
+      "sha256": "e6a0ee24820ec9e708a8398140478b9c9abf26d6551cbf4fc51e26e5f9a2551c"
+    },
+    {
+      "path": "apps/desktop_flutter/windows/.gitignore",
+      "sha256": "96345475f1a3c66bd32d28178fba151ab1506b35b1f7857b8f7651863093ea11"
+    },
+    {
+      "path": "apps/desktop_flutter/windows/CMakeLists.txt",
+      "sha256": "0398cb8f926821d2abd0f9ae89e211dfe9958842a3536202193f7c96fb214db2"
+    },
+    {
+      "path": "apps/desktop_flutter/windows/flutter/CMakeLists.txt",
+      "sha256": "1fe418971b6f41bb35ceb3d64113a835f3f6f171ecaa707bf232492b57a588d6"
+    },
+    {
+      "path": "apps/desktop_flutter/windows/flutter/generated_plugin_registrant.cc",
+      "sha256": "82e02567f2faf5e732dc92a2fb0d01104f7ba8c48973f8cfd41a860b4fac3f3b"
+    },
+    {
+      "path": "apps/desktop_flutter/windows/flutter/generated_plugin_registrant.h",
+      "sha256": "dbc11635d7b1ba1887adf40df5b83d634e9c3ab0bee34510c71528bb4d73602a"
+    },
+    {
+      "path": "apps/desktop_flutter/windows/flutter/generated_plugins.cmake",
+      "sha256": "286346b0d5303dc6b41072f9582d4c52bca35255b85b27b310f858e264dfdc56"
+    },
+    {
+      "path": "apps/desktop_flutter/windows/runner/CMakeLists.txt",
+      "sha256": "34119ec122e36940235ef4bc245fcfb43b6960ed443e28af1a8d833a81209b9e"
+    },
+    {
+      "path": "apps/desktop_flutter/windows/runner/Runner.rc",
+      "sha256": "2268a74297cc5f3623b5b84e6a92dc5b55d4b2e77959515d29ee51e17f28a01e"
+    },
+    {
+      "path": "apps/desktop_flutter/windows/runner/flutter_window.cpp",
+      "sha256": "dd185884c0b5301d400b58f12ebb36b1c8b326531597e531b40e44a6eeb0e943"
+    },
+    {
+      "path": "apps/desktop_flutter/windows/runner/flutter_window.h",
+      "sha256": "38e0fcd3a0b83895852ec295cb70d90179c0dcd40d58f065eb5232a4ecd84898"
+    },
+    {
+      "path": "apps/desktop_flutter/windows/runner/main.cpp",
+      "sha256": "bb68f35c980510ce9040f3ae027495251f3da25607733519c3062c300f76536f"
+    },
+    {
+      "path": "apps/desktop_flutter/windows/runner/resource.h",
+      "sha256": "1fa98588b04561590ba1cf0521ab86a9db4a878312f21c9d5861d965ddd8d1ae"
+    },
+    {
+      "path": "apps/desktop_flutter/windows/runner/resources/app_icon.ico",
+      "sha256": "c098d3fc85cacff98b8e69811b48e9f0d852fcee278132d794411d978869cbf8"
+    },
+    {
+      "path": "apps/desktop_flutter/windows/runner/runner.exe.manifest",
+      "sha256": "825d243e9fa1542619909c1b72d09b3ed7c1f3b225bb8367c125835e5dc3f8aa"
+    },
+    {
+      "path": "apps/desktop_flutter/windows/runner/utils.cpp",
+      "sha256": "6c2c87106b4b29d534c7edcafb3b7f7b9079caa3cdafa7e56671ad2adf5a2543"
+    },
+    {
+      "path": "apps/desktop_flutter/windows/runner/utils.h",
+      "sha256": "95a7f7dddb832997cefa937a96f89472332277e75734a5de553610760b744b03"
+    },
+    {
+      "path": "apps/desktop_flutter/windows/runner/win32_window.cpp",
+      "sha256": "41bb69c1d0af4785d9ac374ad3436255eba5b33282d2682170f0876598214d5b"
+    },
+    {
+      "path": "apps/desktop_flutter/windows/runner/win32_window.h",
+      "sha256": "7dd03746b19dcf3542829b2f6e8ed40a2714ce5f2cb3b0e23f0118a2fcf62d62"
+    },
+    {
+      "path": "docs/DESKTOP_PLATFORM_MATRIX.md",
+      "sha256": "632e116abf7956d8f56caa95edd6a1608432a667bb84deb150aafd28fdb6d84a"
+    },
+    {
+      "path": "docs/FIRST_RUN.md",
+      "sha256": "6a91a0667fba40b921cff3226082839f05262f5ff1c51718ade504c849af2171"
+    },
+    {
+      "path": "docs/GUI_OPERATION_SURFACES.md",
+      "sha256": "b3cee62325a47138263530bb4236a094f480f4256466647fb02cf1430c893b93"
+    },
+    {
+      "path": "docs/INSTALLER_BOUNDARY.md",
+      "sha256": "530416e9ada7870ccf6f0bfd7497aefb53773f11da1562280e383c92b9187872"
+    },
+    {
+      "path": "docs/LANGUAGE_POLICY.md",
+      "sha256": "6bb1d14110bfa036b2a6d0fba18876ff8429a7ae910ee958973817dea62877c7"
+    },
+    {
+      "path": "docs/PRODUCT_COMPLETION_PLAN.md",
+      "sha256": "e8d3e59efa346dbb679c8c392b5d270f2cffd498f37b8bdb2e6b4c72cdab5649"
+    },
+    {
+      "path": "docs/RELEASE_VALIDATION.md",
+      "sha256": "8ceb8e9ca3bc51a5f7119f6c8d526e5414a15ff88f32bacc6c46967adbf4ec1b"
+    },
+    {
+      "path": "docs/SETUP_DOCTOR.md",
+      "sha256": "75362b194380eadb072e29d70baef691d4875f26218157ef0b23762e1e7b2511"
+    },
+    {
+      "path": "docs/WINDOWS_RELEASE_EVIDENCE.md",
+      "sha256": "9315e10c9105833674aa5a075dddaa4226b62e9e90779df42beccfac4ff112cd"
+    },
+    {
+      "path": "docs/WINDOWS_RELEASE_PLAN.md",
+      "sha256": "b803583886a30e8bb1cd216f19fb7ac50a874ad49b8467499461246eca05ce40"
+    },
+    {
+      "path": "docs/application/openai/00_APPLICATION_INDEX.md",
+      "sha256": "59e52b611bfdde9f7e784bf96de0e8630464bb70341cb99829a6a077b7848f84"
+    },
+    {
+      "path": "docs/application/openai/01_SHORT_PITCH.md",
+      "sha256": "7f2a8bf817f3b4b757e7a94633e8d8dba59b68c0db1472f8e3970be844c6bf59"
+    },
+    {
+      "path": "docs/application/openai/02_LONG_PITCH.md",
+      "sha256": "6acfed1caa58b9e1774c00df221aad8475afd7c152934a32528ec60cb2882bff"
+    },
+    {
+      "path": "docs/application/openai/03_PROBLEM_SOLUTION.md",
+      "sha256": "c89c2c1482c18d72f745232ccdd2119c6958414274d6455060cff981c7601f5e"
+    },
+    {
+      "path": "docs/application/openai/04_TECHNICAL_DIFFERENTIATION.md",
+      "sha256": "f698c2bc5864499c012c1124c572504d01c08943ecd05ba9a530ba850b0afe48"
+    },
+    {
+      "path": "docs/application/openai/05_SAFETY_AND_GOVERNANCE.md",
+      "sha256": "2af1a5a5acf8e2453d59705eac524daf7a98088923d305c4e9c6dbb47ad0c702"
+    },
+    {
+      "path": "docs/application/openai/06_WINDOWS_PROOF_REFERENCE.md",
+      "sha256": "c33159850b33979f6095fc1465099835e2424e75000478417b431b510e06ac46"
+    },
+    {
+      "path": "docs/application/openai/07_DEMO_SCRIPT.md",
+      "sha256": "7ca0a66574f6d55f885ccb47dc812adaa18a87f658f7774e69dbf33c2c232856"
+    },
+    {
+      "path": "docs/architecture/RUST_BROKER_IPC_PROTOCOL.md",
+      "sha256": "454de51eced0914a923d330a68f0e799af4aa274d305d3c17792070aa18187cb"
+    },
+    {
+      "path": "docs/public/ARCHITECTURE_SUMMARY.md",
+      "sha256": "dd946e6926252d740104571164f867b0ddf02a14ba0665889f63096e394f2ca1"
+    },
+    {
+      "path": "docs/public/OPENAI_APPLICATION_NOTES.md",
+      "sha256": "167e802cf00c15355bc3f3096103071614b42b02e441f6a01cd128e2de8346b7"
+    },
+    {
+      "path": "docs/public/PROJECT_OVERVIEW.md",
+      "sha256": "44994f67a81f241d33cc8fc674d4a8c73441e804b5277ae4604fd5807a07be0f"
+    },
+    {
+      "path": "docs/public/SAFETY_AND_RELEASE_GATES.md",
+      "sha256": "5dfa85707f3f4e11c638b1ed22277354ad0e65bc7a9619ceac872cc26d77ea84"
+    },
+    {
+      "path": "docs/public/WINDOWS_PROOF_SUMMARY.md",
+      "sha256": "61c6b2dd78800d95185b34d9464e08d93ab16366af82288d0820a35d374b3cfe"
+    },
+    {
+      "path": "docs/reports/WINDOWS_STAGED_INSTALL_ACCEPTANCE_REPORT.md",
+      "sha256": "cd0960c14646280517afe09a0967cc731744c5fe71e0bbf223385de71062c0e2"
+    },
+    {
+      "path": "docs/security/IPC_THREAT_MODEL.md",
+      "sha256": "cd0cac3f426626d090b3058f220dcad66a66ea6c9cf1e1cc427f0f50555c75d9"
+    },
+    {
+      "path": "docs/specs/adapter-conformance.md",
+      "sha256": "ff1bf40818280a1ab90ea4de989c065ebada84e258041cfe590964900750cb0e"
+    },
+    {
+      "path": "docs/specs/agent-runtime.md",
+      "sha256": "2d9dd877bbab646a1fa7831cd2011041ff3ea3866711a6fe6aaa41bc9e5a5e42"
+    },
+    {
+      "path": "docs/specs/approval-visibility-boundary.md",
+      "sha256": "e29c5242020006f03004c6521d674520da62a80887884182590089db6b43f65b"
+    },
+    {
+      "path": "docs/specs/authority-strip-conformance.md",
+      "sha256": "ac2bb8231adaefd0c7d862b278f673d4f5116d154c826687d4e027953b668b43"
+    },
+    {
+      "path": "docs/specs/content-exposure-policy.md",
+      "sha256": "710e766fa4f7db2370fd3bdaeb54622faa48245edd3594263fc14dac2916d3f1"
+    },
+    {
+      "path": "docs/specs/runtime-catalog.md",
+      "sha256": "81a33761e65875012202eba15ed6843ef2c3d18905aba3b8e594e9aafd70cc66"
+    },
+    {
+      "path": "docs/standards/gui-shell-extended-standard.md",
+      "sha256": "93332d611d26096f2ef225ea1f6f26a43c61fd524a7384d805d280c7b866ace1"
+    },
+    {
+      "path": "docs/standards/llm-readable-extension-surface.md",
+      "sha256": "abbd335fe6534fe70bc17a037f9910f337b75fff44e7e0ad2e9eb95a8f043342"
+    },
+    {
+      "path": "examples/adapter/blue_tanuki_reference_adapter.json",
+      "sha256": "d774db92702345300ac9383ef4a4db21d9f8780d83f2b3a29673c22cabbe7cc4"
+    },
+    {
+      "path": "examples/contracts/README.md",
+      "sha256": "3073c3836bf04498069a065bfff7f95569c5bc0154e5532ebf3dfd5cbf0c817d"
+    },
+    {
+      "path": "examples/contracts/action_envelope.valid.json",
+      "sha256": "2408235370cd8038a9206ec21f64a210464ae4375436a0f4ee2e281d7593a198"
+    },
+    {
+      "path": "examples/contracts/adapter.valid.json",
+      "sha256": "6fccc82a12d2e9b50235f0e23c2e05a5d32bad771a5df6c23a7b6b280f4420a9"
+    },
+    {
+      "path": "examples/contracts/adapter_manifest.valid.json",
+      "sha256": "d1e20a6f9e4d82054f2336d10d90c11be4b7b63dd122de6673bad0fbaadde1e7"
+    },
+    {
+      "path": "examples/contracts/agent_diff.valid.json",
+      "sha256": "ed55b93c57409db14320b3cfff7581f0ca7ac5554dc04a206ceaee9f08a60907"
+    },
+    {
+      "path": "examples/contracts/agent_runtime.valid.json",
+      "sha256": "a670b332e86b0e48251b908577d3911e77ce14fffe1b101a6c5c8fc31271ec5d"
+    },
+    {
+      "path": "examples/contracts/agent_session.valid.json",
+      "sha256": "36ed14f86f61431f079d1d127832f59e2e902cc272317641e00f5ce3eee1deed"
+    },
+    {
+      "path": "examples/contracts/agent_task.valid.json",
+      "sha256": "1a61376b69d215e1d87325f816c3543600c40a0052665c14f14c1c9e4678e699"
+    },
+    {
+      "path": "examples/contracts/agent_tool_call.valid.json",
+      "sha256": "0a90de2631d461de09fa84889ae504b13e5f114c4f4a21e68f7ce3e8b2377d15"
+    },
+    {
+      "path": "examples/contracts/agent_workspace.valid.json",
+      "sha256": "ca75a4dee7fb7f0e7528d17c07ec2c7503a997f11d02a3b8d4f3f5ae46bf525d"
+    },
+    {
+      "path": "examples/contracts/approval.valid.json",
+      "sha256": "2104e800363ce9cf6cba972220bdf5fef8f6b975be56d715986a06dc4c9237e8"
+    },
+    {
+      "path": "examples/contracts/audit.valid.json",
+      "sha256": "b2811180e64ed94fe4c32c77691687a4c33f85d51c577e9900b0f2b4118ab3eb"
+    },
+    {
+      "path": "examples/contracts/broker_command_envelope.valid.json",
+      "sha256": "c0d22420a4babf74ea70534fd6ce23f56d96eaf48ee22c05328dbaa73b320bd1"
+    },
+    {
+      "path": "examples/contracts/broker_error.valid.json",
+      "sha256": "cf7e544326f63ca1455a11784e6d67648394908959d605363e8be58f82e6ea42"
+    },
+    {
+      "path": "examples/contracts/broker_health.valid.json",
+      "sha256": "ef69e579c4e90b6f1392e753236539c6181321b7041268164d5b29b4f7400a51"
+    },
+    {
+      "path": "examples/contracts/broker_session.valid.json",
+      "sha256": "847359b067a40ed5480c7dc9c0be7d563c00e83dccbebf07a050d2a2e3d6e3f4"
+    },
+    {
+      "path": "examples/contracts/capability.valid.json",
+      "sha256": "f714d0e83663b89a2b9cbd4b69572b9cb33cadd6815faca32da3d8464c318ffd"
+    },
+    {
+      "path": "examples/contracts/content_exposure.valid.json",
+      "sha256": "882edbdf0cbf0ad4565a580a950f67a2c8e92d50684671a521d99e9d122f0caf"
+    },
+    {
+      "path": "examples/contracts/diagnostic.valid.json",
+      "sha256": "0ecf63eccfad2c12196eee24980ab54540bd5337565450176357995486980a2f"
+    },
+    {
+      "path": "examples/contracts/framework_risk_profile.valid.json",
+      "sha256": "d38517d047fd41c2e674028fa1c66b66b4892eff6414e3244520cee5d2add9ec"
+    },
+    {
+      "path": "examples/contracts/invalid/action_envelope_missing_relation.invalid.json",
+      "sha256": "6db469cbdf0db8bb089476d73f6a578d2a1e22b9ccd0dae674d98383ab0c3652"
+    },
+    {
+      "path": "examples/contracts/invalid/adapter_authority_escalation.invalid.json",
+      "sha256": "088c4db39662a56797287faf1e61949c43ce9cee513ec58221f7012edff9f614"
+    },
+    {
+      "path": "examples/contracts/invalid/adapter_manifest_authority_escalation.invalid.json",
+      "sha256": "36afa1ab45f890e4b75fafe6e1af14bec5c4ec4b86090767344d4093d7246f5f"
+    },
+    {
+      "path": "examples/contracts/invalid/agent_diff_missing_rollback.invalid.json",
+      "sha256": "64b05ef8f1da19fdfe8bb01fb5a56e5b7a544b0d8f7cb6c29307d1d38609a897"
+    },
+    {
+      "path": "examples/contracts/invalid/agent_runtime_workspace_not_required.invalid.json",
+      "sha256": "8a4bc4fc82495f11dac2893d9461229c0907f47e1a41f5a6191b46da4858aba9"
+    },
+    {
+      "path": "examples/contracts/invalid/agent_session_missing_audit.invalid.json",
+      "sha256": "0bc5ff5dee7a016c35c96005fdf34342e23386084911588fae089660fa78b359"
+    },
+    {
+      "path": "examples/contracts/invalid/agent_task_missing_audit.invalid.json",
+      "sha256": "26eb052ac90d0b00094230039d8ba438a34685524f6f7c2c323dd4b66883f522"
+    },
+    {
+      "path": "examples/contracts/invalid/agent_tool_call_missing_permission.invalid.json",
+      "sha256": "6b4d856be879d13df4a020c7141e32278794a504c15b219e6a9eed7ef08bfbbe"
+    },
+    {
+      "path": "examples/contracts/invalid/agent_workspace_allows_outside.invalid.json",
+      "sha256": "0ac40b2769b594e31eec9c9561d89965c4eea2145742043cd2d98f89fae9e9e2"
+    },
+    {
+      "path": "examples/contracts/invalid/approval_bad_hash.invalid.json",
+      "sha256": "16dfd6a787090f9443391846e352df8019ef45b05fa3aa68e1b611a185c38271"
+    },
+    {
+      "path": "examples/contracts/invalid/audit_bad_payload_hash.invalid.json",
+      "sha256": "08db1fab6cfb6188c599dce2c09da67dfd6d164c93ec783a8435ad9536885818"
+    },
+    {
+      "path": "examples/contracts/invalid/broker_command_envelope_dispatch_enabled.invalid.json",
+      "sha256": "50c950328d5860870c3efca9ff53692c717a9a7af24c8aa500e56453b896b2e2"
+    },
+    {
+      "path": "examples/contracts/invalid/broker_error_not_fail_closed.invalid.json",
+      "sha256": "22eafebcdc4f35a5d7426e8f868ea828e7e5d9c980d401bb6324c7b557e9416c"
+    },
+    {
+      "path": "examples/contracts/invalid/broker_health_active_cutover.invalid.json",
+      "sha256": "75902cf4add7026bb3bcf6f39b9e2f41e23104c7030110f4e05c790cf4be85ed"
+    },
+    {
+      "path": "examples/contracts/invalid/broker_health_authority_owner.invalid.json",
+      "sha256": "ffc99cf73ab671ab2c286a7eec46a160a0f168eab8227f4f9ad7b7d90ab55712"
+    },
+    {
+      "path": "examples/contracts/invalid/broker_health_dispatch_enabled.invalid.json",
+      "sha256": "46f06502d52630c3bcfa875d5a0e370db1452427103e63fddd3ee54eb9015a65"
+    },
+    {
+      "path": "examples/contracts/invalid/broker_session_stale_state.invalid.json",
+      "sha256": "bccd4ef3b8df624cdf8def1316eb1f3ed24ca75e1ec82fd1017d7800b7346c7e"
+    },
+    {
+      "path": "examples/contracts/invalid/capability_bad_risk.invalid.json",
+      "sha256": "65d7f45eddf79b3ba8ea470f581250df0f46e0a1b53ed065e91402968585a5c5"
+    },
+    {
+      "path": "examples/contracts/invalid/content_exposure_default_full.invalid.json",
+      "sha256": "6071daba2584ef5d453ea6b0d3bc7fc9dea94318f417707f1fb66e13fc392c83"
+    },
+    {
+      "path": "examples/contracts/invalid/diagnostic_bad_check_status.invalid.json",
+      "sha256": "fadaa4a765bdedca6b804b11a709585c1075c06215160f79135504a625d6d491"
+    },
+    {
+      "path": "examples/contracts/invalid/framework_risk_profile_bad_interval.invalid.json",
+      "sha256": "64bb53c0f351f38efe83c16ae4f04bc72e9c709c88f059f6f130535941689fa3"
+    },
+    {
+      "path": "examples/contracts/invalid/ipc_request_missing_nonce.invalid.json",
+      "sha256": "51dbaba497b4975cf3f78798106333c11c2a43eba0b017c2cbee1d64530139d2"
+    },
+    {
+      "path": "examples/contracts/invalid/ipc_response_bad_status.invalid.json",
+      "sha256": "93754e3aa24f2a09c261578ffe2a91fe85485412bf79877d6fc29f23436137b1"
+    },
+    {
+      "path": "examples/contracts/invalid/permission_bad_source.invalid.json",
+      "sha256": "917b38dda1fccfaf531a92f05498ff1f2c51f381c8dda4f34da9dec63450558e"
+    },
+    {
+      "path": "examples/contracts/invalid/recovery_missing_message.invalid.json",
+      "sha256": "fa7a4c08d29e63fde254fcfbe072c335c85080a93cac71b1541fb4252068c45d"
+    },
+    {
+      "path": "examples/contracts/invalid/runtime_bad_status.invalid.json",
+      "sha256": "b8a1a3fd581b2da92c963274c29ae734250aef204c90e021836dc8040d8c74b2"
+    },
+    {
+      "path": "examples/contracts/invalid/runtime_manifest_unsigned.invalid.json",
+      "sha256": "2e8a0b52f2670f9f399e26b380a669951e6872f222da581a0f70a21184ffd712"
+    },
+    {
+      "path": "examples/contracts/invalid/update_unsafe_policy.invalid.json",
+      "sha256": "a229f7d4bea7ceaae89cb89e61a5ec0dacd03c303854f1570c2fb1b3d9697644"
+    },
+    {
+      "path": "examples/contracts/ipc_request.valid.json",
+      "sha256": "1bda4f73e54fd57a0d4bb13122cbc16517a00a0030db3679a0732dfcf9afc613"
+    },
+    {
+      "path": "examples/contracts/ipc_response.valid.json",
+      "sha256": "81419021e81c9704ad84120df8ba05692de380ea2d0ab7213dd72b65a667047a"
+    },
+    {
+      "path": "examples/contracts/llm_bounded_extension.valid.json",
+      "sha256": "e4fbbf0c728427d2eb8ae8cf737622024fa3def6e872eb8332cd1d6dd2e18bf1"
+    },
+    {
+      "path": "examples/contracts/permission.valid.json",
+      "sha256": "b70738365fa11799ae514cd876fbc06cc8f3c24da8d54d549d895724b6ca4bed"
+    },
+    {
+      "path": "examples/contracts/recovery.valid.json",
+      "sha256": "f9240ac4b4cc1ba449cc8ecacf6525f5e19807a3e0969a4ef0aa0a71faa4a792"
+    },
+    {
+      "path": "examples/contracts/runtime.valid.json",
+      "sha256": "5bc9f93e9b8791f041b1dc90a209374a01489aa2a160c907618ee3e0f4de9339"
+    },
+    {
+      "path": "examples/contracts/runtime_manifest.valid.json",
+      "sha256": "cd9dfbbfc0ef67b6c52d26a4328b9c75e3dba2816a2e6608c41cb79ee71f6e54"
+    },
+    {
+      "path": "examples/contracts/update.valid.json",
+      "sha256": "473ff0ab36fc36a6a03f62522a1af8ee42629b34f5d223ee8c10228b9e700c1b"
+    },
+    {
+      "path": "examples/framework_risk/flutter_current.json",
+      "sha256": "d38517d047fd41c2e674028fa1c66b66b4892eff6414e3244520cee5d2add9ec"
+    },
+    {
+      "path": "installer/first_run.py",
+      "sha256": "5ee6d2f9de93b9905564ff9848c9bb960c8411fdbc6ebfb631be15340d0cbf3e"
+    },
+    {
+      "path": "installer/setup_doctor.py",
+      "sha256": "95cd75f7c19f9deeb7c5c5a0de540c31b4f49bb923ebf2b7e16478aef21e503f"
+    },
+    {
+      "path": "installer/windows/README.md",
+      "sha256": "18a833d7d0482e81b2962f22335b46cc217a5af8fced54ecb93f3cfc4c5c947a"
+    },
+    {
+      "path": "installer/windows/collect_audit_anchor_proof.ps1",
+      "sha256": "5803eb15812369a7f734fc3f97af76e0dac88f30a307346e081e5677e1d6f116"
+    },
+    {
+      "path": "installer/windows/collect_broker_smoke.ps1",
+      "sha256": "188526ac9f674561dad42cb6aa9ae6b091138c7541dc985b0d3f412f94a6e7a6"
+    },
+    {
+      "path": "installer/windows/collect_installed_smoke.ps1",
+      "sha256": "e97d8bd1dd23767244697fa9e21c771c7ac99241a758c7fef7eaa10c7773c48c"
+    },
+    {
+      "path": "installer/windows/collect_setup_doctor.ps1",
+      "sha256": "8e712b7fdb0e68569ed2d02b0c9012ec6c10d641c7b13bc0b4cae9f5209bd9eb"
+    },
+    {
+      "path": "installer/windows/stage_installed_app.ps1",
+      "sha256": "4f7211aaea81536236a8815ee2ce25e605ebc466ad8a17f14a43ba25f6af2f2e"
+    },
+    {
+      "path": "native/rust_helper/Cargo.lock",
+      "sha256": "b46d9f1e89eaaad6d5bf3e81c3d500bc7457268f9c66a0055425f67e718617f1"
+    },
+    {
+      "path": "native/rust_helper/Cargo.toml",
+      "sha256": "41419f2bc3dc6e97651f5969351b64d68658332a9f3b89e449e2ff699d388b69"
+    },
+    {
+      "path": "native/rust_helper/README.md",
+      "sha256": "d42486e3f5a96f0214ab27852d8689f8ebcf7c4f16f7be3415706abdc671adc2"
+    },
+    {
+      "path": "native/rust_helper/audit_hash/README.md",
+      "sha256": "e0c8a0b9ade7ee06522a9e9474e8c1199bfc86b992d7c4fdc774c343c2dbfd1d"
+    },
+    {
+      "path": "native/rust_helper/diagnostics/README.md",
+      "sha256": "0b826c72d0901693b9e3f384ae89ca45f5ee703111c2892d9d36465c57a19bd9"
+    },
+    {
+      "path": "native/rust_helper/filesystem/README.md",
+      "sha256": "a011d9536f87dc8deab25e6fa1a0f6b80e8dede2c3db1d438c5b2abec763ff48"
+    },
+    {
+      "path": "native/rust_helper/network/README.md",
+      "sha256": "303837b4f2d31b701f80e1cc16d8d186a6854993ada4ae61b43e7f3b1c278f4a"
+    },
+    {
+      "path": "native/rust_helper/process/README.md",
+      "sha256": "f7d902d65e05c59a80ad220eb5e0286a646bc99040a31c7bd8421839a7c7fcb6"
+    },
+    {
+      "path": "native/rust_helper/secure_ipc/README.md",
+      "sha256": "1686d6419b12205aa7d55d4339875b038d546845850623d2fca72216f4033ab6"
+    },
+    {
+      "path": "native/rust_helper/src/audit_hash.rs",
+      "sha256": "139649f43d257c58d809dcf355fc89b4e9f40fc3fd7e7caab3500ab7bf565225"
+    },
+    {
+      "path": "native/rust_helper/src/broker/audit.rs",
+      "sha256": "3ccd2ab3a9dd132cf275a6d54462fd9d5be9e4f8bf07e731b1d8fe14e26cfb06"
+    },
+    {
+      "path": "native/rust_helper/src/broker/authority.rs",
+      "sha256": "f1c7d2087751ff823520c22b00f8a8e79637c1b4aa0b1b2afc495013d1fe5edc"
+    },
+    {
+      "path": "native/rust_helper/src/broker/ipc_server.rs",
+      "sha256": "95308e5901724e4934a613738777ee1fe41baef03cb7f587e9da8f097cc9aeeb"
+    },
+    {
+      "path": "native/rust_helper/src/broker/mod.rs",
+      "sha256": "eb0909c10fd7d1ef02b519a5a603c66bad4cea886ed958bc32b26f1f6ca4058f"
+    },
+    {
+      "path": "native/rust_helper/src/broker/protocol.rs",
+      "sha256": "368f76ab7b7ea0db589fe5bd4bb32848ca7f6ccd709fbf0e6d423dcb7ec1c3c5"
+    },
+    {
+      "path": "native/rust_helper/src/broker/store.rs",
+      "sha256": "7156bdfa1f18098dce93bebbe46c88224283eb12ab36e7a12b06bbe21a22ccc7"
+    },
+    {
+      "path": "native/rust_helper/src/diagnostics.rs",
+      "sha256": "23483371de1eb90a48404a88710c4a1f95305e711c7d181e6dffa46ea0892270"
+    },
+    {
+      "path": "native/rust_helper/src/filesystem.rs",
+      "sha256": "a04b0b6262deb579bc03b399d57fef9fe8c9e2393bb1f6c560905e25d4c533b8"
+    },
+    {
+      "path": "native/rust_helper/src/ipc.rs",
+      "sha256": "cf0b6fefea5cb0ca2c3dfe6b4c8c3c5759d22f956a33a67ef7cb6935b0b984a0"
+    },
+    {
+      "path": "native/rust_helper/src/lib.rs",
+      "sha256": "f2290d5d3770196a8b5992337f8a5727cace13647259c6fffde0cf9ef9176045"
+    },
+    {
+      "path": "native/rust_helper/src/main.rs",
+      "sha256": "41e5fbd64e62b601b14d8e4963a8fd28ba50370118bd0e28aea6b9586a535dbe"
+    },
+    {
+      "path": "native/rust_helper/src/network.rs",
+      "sha256": "37147c60dd94b7c31936a3075f47a531e6064d540ae4956cd93bdb3525b03b27"
+    },
+    {
+      "path": "native/rust_helper/src/process.rs",
+      "sha256": "143fd9d9b5f7c7eb3f72ee6cbf12844c9f2b737eed99deffc264906acab26a82"
+    },
+    {
+      "path": "native/rust_helper/src/update_verification.rs",
+      "sha256": "5e85be1a70b29d84fed6233f084a0d16486f5cf77cf119f4e24d11f6ac448385"
+    },
+    {
+      "path": "native/rust_helper/tests/broker_ipc.rs",
+      "sha256": "fd9352fd3d65dea6a2c9797e04cc5f1ae6c45c07381581d8b7336ff3400fc286"
+    },
+    {
+      "path": "native/rust_helper/update_verification/README.md",
+      "sha256": "7df726b2cecca5df5c7635f4123b0ed30968e592c50444d6aa2f6503d6d7b189"
+    },
+    {
+      "path": "packages/__init__.py",
+      "sha256": "bd8c996fdcb319ac9ba57e9ba62842810450212a449125cb7e4f0b56856fb23c"
+    },
+    {
+      "path": "packages/agent_runtime/__init__.py",
+      "sha256": "b26cbf3f484fa432db58477edd35988c357ef1d99a9e22af8bc768af543fedc6"
+    },
+    {
+      "path": "packages/agent_runtime/contract.py",
+      "sha256": "e94f316275be076a2323d5bf5d0f24e3c4d38416b2b32d55ccfa088751cbe99a"
+    },
+    {
+      "path": "packages/blue_tanuki_adapter/README.md",
+      "sha256": "0152b73b5c7c34ea4578a60bfcddd0c9bf9c73b31725d7d1cc3f51f9001dbc3b"
+    },
+    {
+      "path": "packages/blue_tanuki_adapter/__init__.py",
+      "sha256": "170e6be586471eb22194ec2a5e579a9facc93f39190f231d8f2b9ae91b2436f5"
+    },
+    {
+      "path": "packages/blue_tanuki_adapter/adapter.py",
+      "sha256": "bce330311e244bd6a14d5a67ccb43502092697f38cfca1289a0592bea740e935"
+    },
+    {
+      "path": "packages/blue_tanuki_adapter/adapter_contract.md",
+      "sha256": "bc15c0ec251adf4133c4f39a116dc9b85c2e2d7b339c538e167bbe3a21c5e65b"
+    },
+    {
+      "path": "packages/blue_tanuki_adapter/approvals.py",
+      "sha256": "a39b2622341063c3f4755349bfe6497f9a1cd5ffc511f0cc4ebd740b32078a53"
+    },
+    {
+      "path": "packages/blue_tanuki_adapter/audit_export.py",
+      "sha256": "616597b11e1ad8ec2dcae9067d47ca1ee075589218e72c63de75ccd59a352d57"
+    },
+    {
+      "path": "packages/blue_tanuki_adapter/authority_trace.py",
+      "sha256": "aefb5d99a859d29c14da01cc9a33526de0ad89f1a68b733dd8892a81702bfbcb"
+    },
+    {
+      "path": "packages/blue_tanuki_adapter/diagnostics.py",
+      "sha256": "d35feb67b79a9f91a67fd7cb197055e26293b5236e6be9076a0d409f8b7dbb80"
+    },
+    {
+      "path": "packages/blue_tanuki_adapter/health.py",
+      "sha256": "a8a3b42924f09042ec03447f6c535af3a0543afcbd759c76be513e26f69c30b2"
+    },
+    {
+      "path": "packages/blue_tanuki_adapter/notifications.py",
+      "sha256": "c91289e7b9d8abce3162368211f60b66f479d12b00f8318a81a28b65cbb8f4b6"
+    },
+    {
+      "path": "packages/blue_tanuki_adapter/recovery.py",
+      "sha256": "7448efde354e4ee97bb51cf1fad3ab2c84c30e0061db8393fbc4003333afb7b8"
+    },
+    {
+      "path": "packages/blue_tanuki_adapter/runtime_snapshot.py",
+      "sha256": "56fcb407b521212caaaca810cc2ee22f20953b17139778a0cf2523275912f442"
+    },
+    {
+      "path": "packages/runtime_catalog/__init__.py",
+      "sha256": "ad27829e923006de12625cce90075901abb486b7ab6ef70da73e7eff9bc0303f"
+    },
+    {
+      "path": "packages/runtime_catalog/catalog.py",
+      "sha256": "37f7b29e7e793fc9ad36e06240d7014a1c75bed820163d710608fe2adb08eafe"
+    },
+    {
+      "path": "packages/shell_contracts/README.md",
+      "sha256": "2c56b1ec48f2e591ecc2a2f8423f166ce2b7535f3eaa8d482f6ad2bd8f8a5389"
+    },
+    {
+      "path": "packages/shell_contracts/__init__.py",
+      "sha256": "ef275fd24aa9d202549c0551661ac669c551209b094712f124fbb1aa5fd4affd"
+    },
+    {
+      "path": "packages/shell_contracts/schema_loader.py",
+      "sha256": "9b612bda4b6c86ce8a7a5deeff562ac1c4d09296b16c83fbede12ff49e19a9dc"
+    },
+    {
+      "path": "packages/shell_core/README.md",
+      "sha256": "0431e10b518f9a332431e5a1fd0224aaf45d82e8985b77fb9df81cf1d872cc8c"
+    },
+    {
+      "path": "packages/shell_core/__init__.py",
+      "sha256": "03e22f348fc383ba1b68df382df7b571e7a9b209a3b7f05feb9ed27ae9c5936f"
+    },
+    {
+      "path": "packages/shell_core/action_envelope.py",
+      "sha256": "e083b5641e5933238d5fa4a8978e598205518b2565aac95bd508544d4bd1753d"
+    },
+    {
+      "path": "packages/shell_core/adapter_loader.py",
+      "sha256": "de0ef8338bf51705c6bec9f15fbdc17c9e44de9c2ddfd3273ceaa866e5c88ec2"
+    },
+    {
+      "path": "packages/shell_core/approval_queue.py",
+      "sha256": "3249c0c29f2ad6695b549d0a3d8c5e10bf40e174a0a15a305aef476056d97b01"
+    },
+    {
+      "path": "packages/shell_core/audit_chain.py",
+      "sha256": "6921e3955361097675ba2da6b3cffb3705b442b804ffd012bf35f6eb03767a05"
+    },
+    {
+      "path": "packages/shell_core/audit_store.py",
+      "sha256": "3753c12319889f0b67414f9734610535b2e63ab0739594bfd991e47202d378d1"
+    },
+    {
+      "path": "packages/shell_core/authority_keys.py",
+      "sha256": "718a89fa3308d7e2fea1a1ba7d617aab8c88f5bc01ea349fdb8cb0f1ff88aba5"
+    },
+    {
+      "path": "packages/shell_core/content_exposure.py",
+      "sha256": "d08128449fab4b081abfefdd5650848a4ee3819bdc80ade77c05e0a5ad57463d"
+    },
+    {
+      "path": "packages/shell_core/error_taxonomy.py",
+      "sha256": "ed11d6875b4096395e1d15b2e92c831dbaf6aac76b93c0cb41fe2a59e0a1edbc"
+    },
+    {
+      "path": "packages/shell_core/invariant_evaluator.py",
+      "sha256": "d953efc0a2d089f71926117644407c4be9bf1bacaaf63ed41337f5b14efea175"
+    },
+    {
+      "path": "packages/shell_core/normalization.py",
+      "sha256": "e9d137e8aa04f1c94365419ce9148e34d5ea5bbaee0e2a3b7b2b6d464cb9b004"
+    },
+    {
+      "path": "packages/shell_core/permission_ledger.py",
+      "sha256": "e182def6642059ba3d8da15b4aa957239ad1bf9729285532892f113c15333a4d"
+    },
+    {
+      "path": "packages/shell_core/persistence.py",
+      "sha256": "1ed36247f704f0384c686c3c890408b4a27d0aca3b1303bce0e93b0cc4dd5710"
+    },
+    {
+      "path": "packages/shell_core/policy_evaluator.py",
+      "sha256": "9f2da382ad1a118587925ae7024e2c6570663e065939a32af89280fcf74074fe"
+    },
+    {
+      "path": "packages/shell_core/recovery_catalog.py",
+      "sha256": "b2ab086d3b64fd7520448eaa03fe392c7c70352a53f590efd409e97b97c344f2"
+    },
+    {
+      "path": "packages/shell_core/release_smoke.py",
+      "sha256": "8588747aff6ee7d0a024b940002de7f792b491afa0749caf5b34b860e07f151e"
+    },
+    {
+      "path": "packages/shell_core/runtime_registry.py",
+      "sha256": "8103276e72664badc1548aa9ca273feeb9c111372de33f7cf0d3444983668b1e"
+    },
+    {
+      "path": "packages/shell_core/runtime_state.py",
+      "sha256": "18baaaa0770d0f18bc825019f317ce989def8ed4616f9fa5835cc8150640e2f2"
+    },
+    {
+      "path": "packages/shell_core/schema_validation.py",
+      "sha256": "524e6bb3503a981bc2eb60d88a8ab819df42a911a5ac7ec59c45321da2b9fab8"
+    },
+    {
+      "path": "packages/shell_core/sensitive_action_router.py",
+      "sha256": "e9504114ee9c482cc9751a8120677f05b5835a44221f48f96e9fb3ac6eeac185"
+    },
+    {
+      "path": "packages/shell_core/state_snapshot.py",
+      "sha256": "4732e48e38c605f626565944409234ce86104ae6b72510b0f246904314c23721"
+    },
+    {
+      "path": "packages/shell_core/state_store.py",
+      "sha256": "c2870cb1afcea054c4e64ee3ff77cb00761940d510d53aac6debff44e82f15b2"
+    },
+    {
+      "path": "packages/shell_core/update_policy_store.py",
+      "sha256": "1a471f8593320440b354a4259223db16a5f9652b74b48134a08d782f294e0615"
+    },
+    {
+      "path": "packages/shell_ui/README.md",
+      "sha256": "3521f358a65aae47e993dd1dc5e0657507047ac913fcce7a03594049bcc39242"
+    },
+    {
+      "path": "public_assets/windows_proof_pack/00_WINDOWS_PROOF_INDEX.md",
+      "sha256": "81bb458a80f4fec389e27bef112c640b286a3cf1c7c58e12efcb6becf93d18f5"
+    },
+    {
+      "path": "public_assets/windows_proof_pack/SCREENSHOT_INDEX.md",
+      "sha256": "58f2b079c8e854101e210c92f80a3e0dcb973ca7f636e28e56294d163eb35c61"
+    },
+    {
+      "path": "public_assets/windows_proof_pack/evidence_copies/EVIDENCE_HASHES.txt",
+      "sha256": "14a995dd3e4ea4d4315b6e2a5d25005b259e3ada7121545446f46af46f624114"
+    },
+    {
+      "path": "public_assets/windows_proof_pack/evidence_copies/release_runtime_assertions.redacted.json",
+      "sha256": "587659d05ddc3d416f85f744b4850481dfdbc26ab0023d9b2537670cb47bb511"
+    },
+    {
+      "path": "public_assets/windows_proof_pack/evidence_copies/windows_installed_smoke.redacted.json",
+      "sha256": "c257cebb4b35d7f8f89d50438fc90337c18e87ee028aec0871f750906fc4c0b3"
+    },
+    {
+      "path": "public_assets/windows_proof_pack/hashes/artifact_hashes.txt",
+      "sha256": "9e7ea8e51ee5d958824f8f24908ab7634205b0d2a50db237871057cfbee58f72"
+    },
+    {
+      "path": "public_assets/windows_proof_pack/logs/build_validation.log",
+      "sha256": "020050c8e77c3cd423b7dce64abea5d0d71bea2bcefb9c4ff5fe792d18c84a7b"
+    },
+    {
+      "path": "public_assets/windows_proof_pack/logs/validation.log",
+      "sha256": "a43a88f326dacbe0c154522064bf213f10187e19535f5dfa15a4f9b9d3d8bacb"
+    },
+    {
+      "path": "release_blockers.registry.json",
+      "sha256": "cc727f8a2503e16fb30ca7570d46e17a49ad55cb0b78198e61a24b6e7fc0bb31"
+    },
+    {
+      "path": "scripts/launch_owner_desktop.ps1",
+      "sha256": "21ac7c1589ac804070aed3b1167b9b6ee2a883e130820d6ee3a04b294fd3fddf"
+    },
+    {
+      "path": "scripts/launch_owner_desktop.sh",
+      "sha256": "b0568d093fd1cc01cecc0d47ef0319e9d2a5468e41b545c905c8383d038a140c"
+    },
+    {
+      "path": "specs/action_envelope.schema.json",
+      "sha256": "737d5584ef2bf3905f784e7707071b9001691490251ef09123a0f5e20b66b25b"
+    },
+    {
+      "path": "specs/adapter.schema.json",
+      "sha256": "37882741099adb12c743439e2deef6bbb2549a33d95df185531b1b89d6caa6e3"
+    },
+    {
+      "path": "specs/adapter_manifest.schema.json",
+      "sha256": "c583f515223a89e344dff404f9357135afba64e17d62c9ab1d683e5c0bf8514d"
+    },
+    {
+      "path": "specs/agent_diff.schema.json",
+      "sha256": "6274573543eeeaaaa06cb1e1d78423a33086c3e5ebfa2e09f4323b3b6405866b"
+    },
+    {
+      "path": "specs/agent_runtime.schema.json",
+      "sha256": "524b6a547b7b995e8bddb5b66f03b0acd780ebe84bb30b7b0f66b028171f2286"
+    },
+    {
+      "path": "specs/agent_session.schema.json",
+      "sha256": "907d7a8f7deff3c76bbf386bb84bf2cc06d92f95d9ccbce0b9618f57faaa239a"
+    },
+    {
+      "path": "specs/agent_task.schema.json",
+      "sha256": "df3a8410fbdc5602e07bdf6bb14c33e8ea90a55d41898fb78e5c47e93b44d5c5"
+    },
+    {
+      "path": "specs/agent_tool_call.schema.json",
+      "sha256": "b81c12c9ddc880255c5e8b42380a1243f91eb1e7bb58eeb27197904078d4c40b"
+    },
+    {
+      "path": "specs/agent_workspace.schema.json",
+      "sha256": "f21effb7d9a98edbf39e66699445cecb237ac6907316af940ec6db0e58c5f2d5"
+    },
+    {
+      "path": "specs/approval.schema.json",
+      "sha256": "06ef5fee1733bd3ee5b51bf85e4fe6cd81898036001e7e912f09238b1cc1c9b2"
+    },
+    {
+      "path": "specs/audit.schema.json",
+      "sha256": "bb16cd3f5660414b544dd2d31f82e444bd9ffcf0fcb974f52ed4dd94b32e6773"
+    },
+    {
+      "path": "specs/broker_command_envelope.schema.json",
+      "sha256": "13d4dadba293f054b59b25e9b6075a66ff254bb675b2fdc62039800395ed45f0"
+    },
+    {
+      "path": "specs/broker_error.schema.json",
+      "sha256": "a08942be537d9b3de9880676fc0641e9818686168bba30dab65384f06c4aadd5"
+    },
+    {
+      "path": "specs/broker_health.schema.json",
+      "sha256": "80824b95549db5f22b820da533279cee451cd07a27cb41d9024a3894ef178807"
+    },
+    {
+      "path": "specs/broker_session.schema.json",
+      "sha256": "a9f6913fc41227ce1e4dbb7ea1f3ef3e65413144e46730d9c1525f11c59f9e78"
+    },
+    {
+      "path": "specs/capability.schema.json",
+      "sha256": "934c3aa35f019adbd7c5d7dfb4dab95b2f3b375719f2d0ce30317d3ff971923f"
+    },
+    {
+      "path": "specs/content_exposure.schema.json",
+      "sha256": "8962c7ef9432b783eef2d73f2178b0abaa36bf34bca4d979cb40a8cc0727beae"
+    },
+    {
+      "path": "specs/diagnostic.schema.json",
+      "sha256": "bc233d3d2e9d7474d8705a85a36591a1ab6f88c9d2e6cfdac40bd76971b240d9"
+    },
+    {
+      "path": "specs/framework_risk_profile.schema.json",
+      "sha256": "7d5394679079028bf98d720041a30d557a985287a7be491e03e5b2479373944a"
+    },
+    {
+      "path": "specs/ipc_request.schema.json",
+      "sha256": "887c54f8aaba30dee9ff4b0ef760a3aa97eab4ef54f994e5caad4f83ebe76a5b"
+    },
+    {
+      "path": "specs/ipc_response.schema.json",
+      "sha256": "2394842a8a4099ba9d57003ce89231f1271fb39b11d68067cf114c64609e04f5"
+    },
+    {
+      "path": "specs/permission.schema.json",
+      "sha256": "467f214d9c2fd23076f4a4eae721ed90eb5e2cae6e4b25b31bbed34792bb658a"
+    },
+    {
+      "path": "specs/recovery.schema.json",
+      "sha256": "ca4cbbbcf53cb654ae4d51c8f741f91b0a8f787c7b47f5ced7c4f6d1cd9697d9"
+    },
+    {
+      "path": "specs/runtime.schema.json",
+      "sha256": "275a632a5a15529fb4c40074a2157902207363b32dc079204e700de46d029c63"
+    },
+    {
+      "path": "specs/runtime_manifest.schema.json",
+      "sha256": "af58bc41a73edece5e8edc09d218b50b53ed3cbcc3ff9078d53e6a6e917f3514"
+    },
+    {
+      "path": "specs/update.schema.json",
+      "sha256": "12f3d86b927809fb24a5164533e311572f2d237d7852683b4c35b2c39cd75524"
+    },
+    {
+      "path": "tooling/broker_parity/run_authority_parity.py",
+      "sha256": "8281971621e063b2d0db24ce6e0b271dc94063653a1a02c8dfc80c5ffaf4d68b"
+    },
+    {
+      "path": "tooling/codegen/README.md",
+      "sha256": "61aa0b84ae5c2185a0fa05ff95f5dd2fe7611f1ed0a13be3390278000383a424"
+    },
+    {
+      "path": "tooling/codegen/generate_contracts.py",
+      "sha256": "5e53252d86e52f57e4ce2ae9d6f6c2e6a7da463605e744ed76a3ef6476cb0e92"
+    },
+    {
+      "path": "tooling/conformance_tests/run_conformance_skeleton.py",
+      "sha256": "bfd550702197e43c34dcda1248b200e5653254b4734d3c9cc7e7d955c68c104a"
+    },
+    {
+      "path": "tooling/evidence_bundle.py",
+      "sha256": "6b2547b940d4690a0667b04918f1cf2fee2baa85576942a55771022045758da9"
+    },
+    {
+      "path": "tooling/manifest.py",
+      "sha256": "5cd85c5d849688345c78af8c41cbb857cb19af80b527cfa3146db3750caf8d7c"
+    },
+    {
+      "path": "tooling/packaging_portability_check.py",
+      "sha256": "5937600349aa0222f7a5ac34fe6b80fa7806ec37df032eef0b4b2a08df415701"
+    },
+    {
+      "path": "tooling/release_gate_check.py",
+      "sha256": "19cd757d548e9d6e347cee79c095ffb65c6af3b3c2360f4cb35b59ee546c82ee"
+    },
+    {
+      "path": "tooling/release_runtime_assertions.py",
+      "sha256": "aafffb1ccb87436fdc984e63e09927ee1988b16f0afb68dfa45351f4df1b04f2"
+    },
+    {
+      "path": "tooling/release_smoke.py",
+      "sha256": "25d3c65dbada0d3235a35a89952b0619c296a1c9e4d3acbc10a5c62f9ef2accf"
+    },
+    {
+      "path": "tooling/schema_check/check_schemas.py",
+      "sha256": "3a663989050dced9aee5d8fa5d9d340aa42f5e2960c885c6c9db5f71500113e4"
+    },
+    {
+      "path": "tooling/shell_snapshot.py",
+      "sha256": "1b406e9b5d8f5789c50d1f63a7eaa29037776561a1d14aaec4d8196968d1a473"
+    },
+    {
+      "path": "tooling/ui_snapshot_tests/README.md",
+      "sha256": "84e9d9171374aa1123e3d9bb135364bbfcd6ebc43fa920aed8c49da15345d249"
+    },
+    {
+      "path": "tooling/validate_all.py",
+      "sha256": "15d0feb4e2ab797ccb94386edf10d86af1953b87a538d75d26d379bf72ec7776"
+    },
+    {
+      "path": "tooling/windows_release_evidence.py",
+      "sha256": "7a60c2427c2569f9f789a0bb29c38c07170bc649f3f3ea5fa794ce510b32d268"
+    }
+  ]
+}

@@ -1,0 +1,212 @@
+===== windows_logs/phase3_cargo_fmt_check.log =====
+timestamp_start: 2026-06-06T17:39:13.7195971Z
+timestamp_end: 2026-06-06T17:39:16.8273482Z
+working_directory: <WINDOWS_USER_HOME>\Documents\GUI-Shell\native\rust_helper
+command: cargo fmt --check
+exit_code: 0
+--- output ---
+
+===== windows_logs/phase3_cargo_test.log =====
+timestamp_start: 2026-06-06T17:39:16.9208440Z
+timestamp_end: 2026-06-06T17:39:22.2021591Z
+working_directory: <WINDOWS_USER_HOME>\Documents\GUI-Shell\native\rust_helper
+command: cargo test
+exit_code: 0
+--- output ---
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.26s
+     Running unittests src\lib.rs (target\debug\deps\gui_shell_rust_helper-4ea4ca33dc28eb0d.exe)
+
+running 42 tests
+test audit_hash::tests::hmac_sha256_matches_rfc_4231_case_1 ... ok
+test audit_hash::tests::audit_hash_is_deterministic ... ok
+test broker::protocol::tests::broker_state_store_declares_all_in_memory_scopes ... ok
+test broker::protocol::tests::authority_metadata_is_rejected_and_audited ... ok
+test broker::protocol::tests::broker_health_is_accepted_and_audited ... ok
+test broker::protocol::tests::command_envelope_is_suspended_without_dispatch ... ok
+test broker::protocol::tests::current_issued_at_formatter_uses_utc_rfc3339_seconds ... ok
+test broker::protocol::tests::authority_alias_and_separator_variants_are_rejected ... ok
+test broker::protocol::tests::invalid_json_is_rejected_and_audited ... ok
+test broker::protocol::tests::issued_at_parser_handles_utc_offsets ... ok
+test broker::protocol::tests::json_authority_metadata_is_rejected_and_audited ... ok
+test broker::protocol::tests::json_missing_metadata_is_rejected_and_audited ... ok
+test broker::protocol::tests::command_envelope_reports_process_credential_and_update_gates ... ok
+test broker::protocol::tests::json_health_request_is_accepted_and_serialized ... ok
+test broker::protocol::tests::fixture_authority_operation_is_isolated_from_production_operation ... ok
+test broker::protocol::tests::malformed_request_is_rejected_and_audited ... ok
+test broker::protocol::tests::malformed_issued_at_is_rejected_and_audited ... ok
+test broker::protocol::tests::payload_hash_matches_dart_known_vectors ... ok
+test broker::protocol::tests::payload_hash_mismatch_is_rejected_and_audited ... ok
+test broker::protocol::tests::persistence_required_health_suspends_without_store ... ok
+test broker::protocol::tests::persistence_required_command_rejects_without_store ... ok
+test broker::authority::tests::non_authority_sources_cannot_grant_authority ... ok
+test broker::protocol::tests::production_authority_rejects_caller_audit_mapping ... ok
+test broker::protocol::tests::production_authority_rejects_caller_forged_authority_source ... ok
+test broker::protocol::tests::production_authority_uses_broker_owned_registry_and_denies_missing_records ... ok
+test broker::protocol::tests::production_authority_rejects_caller_supplied_fixture_state ... ok
+test broker::protocol::tests::shutdown_sets_lifecycle_flag ... ok
+test broker::protocol::tests::replayed_nonce_is_rejected_and_audited ... ok
+test broker::protocol::tests::stale_session_is_rejected_and_audited ... ok
+test broker::protocol::tests::stale_issued_at_is_rejected_and_audited ... ok
+test broker::protocol::tests::unicode_nfkc_authority_metadata_is_rejected_and_audited ... ok
+test broker::protocol::tests::value_only_and_nested_authority_metadata_are_rejected ... ok
+test network::tests::network_diagnostic_does_not_fetch_external_url_by_default ... ok
+test filesystem::tests::filesystem_diagnostic_does_not_read_content_by_default ... ok
+test process::tests::process_diagnostic_does_not_execute_arbitrary_commands ... ok
+test update_verification::tests::update_verification_rejects_unsigned_update ... ok
+test broker::protocol::tests::persistent_store_rejects_tampered_audit_chain ... ok
+test broker::protocol::tests::persistent_store_health_reports_durable_ready ... ok
+test broker::protocol::tests::persistent_store_rejects_malformed_replay_state ... ok
+test broker::protocol::tests::persistent_store_rejects_replayed_nonce_after_restart ... ok
+test broker::protocol::tests::persistent_store_rejects_truncated_audit_anchor ... ok
+test broker::protocol::tests::persistent_store_verifies_audit_chain_after_restart ... ok
+
+test result: ok. 42 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.38s
+
+     Running unittests src\main.rs (target\debug\deps\gui_shell_rust_helper-fee503b2d77d015d.exe)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests\broker_ipc.rs (target\debug\deps\broker_ipc-aec2c0852b2de18d.exe)
+
+running 4 tests
+test broker_ipc_rejects_payload_hash_mismatch ... ok
+test broker_ipc_rejects_unauthenticated_malformed_oversized_and_stale_requests ... ok
+test broker_process_launch_connect_and_shutdown ... ok
+test broker_ipc_rejects_replay_after_process_restart ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 2.92s
+
+   Doc-tests gui_shell_rust_helper
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+===== windows_logs/phase4_dart_format_check.log =====
+timestamp_start: 2026-06-06T17:40:36.1086598Z
+timestamp_end: 2026-06-06T17:40:39.7219740Z
+working_directory: <WINDOWS_USER_HOME>\Documents\GUI-Shell\apps\desktop_flutter
+command: dart format --output=none --set-exit-if-changed .
+exit_code: 0
+--- output ---
+Formatted 22 files (0 changed) in 0.18 seconds.
+
+===== windows_logs/phase4_flutter_analyze.log =====
+timestamp_start: 2026-06-06T17:39:51.2949151Z
+timestamp_end: 2026-06-06T17:40:10.7462090Z
+working_directory: <WINDOWS_USER_HOME>\Documents\GUI-Shell\apps\desktop_flutter
+command: flutter analyze
+exit_code: 0
+--- output ---
+Resolving dependencies...
+Downloading packages...
+  flutter_lints 3.0.2 (6.0.0 available)
+  lints 3.0.0 (6.1.0 available)
+  matcher 0.12.19 (0.12.20 available)
+  meta 1.18.0 (1.18.3 available)
+  test_api 0.7.11 (0.7.12 available)
+  vector_math 2.2.0 (2.4.0 available)
+Got dependencies!
+6 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+Analyzing desktop_flutter...
+No issues found! (ran in 10.1s)
+
+===== windows_logs/phase4_flutter_test.log =====
+timestamp_start: 2026-06-06T17:40:10.8266297Z
+timestamp_end: 2026-06-06T17:40:36.0979574Z
+working_directory: <WINDOWS_USER_HOME>\Documents\GUI-Shell\apps\desktop_flutter
+command: flutter test
+exit_code: 0
+--- output ---
+Resolving dependencies...
+Downloading packages...
+  flutter_lints 3.0.2 (6.0.0 available)
+  lints 3.0.0 (6.1.0 available)
+  matcher 0.12.19 (0.12.20 available)
+  meta 1.18.0 (1.18.3 available)
+  test_api 0.7.11 (0.7.12 available)
+  vector_math 2.2.0 (2.4.0 available)
+Got dependencies!
+6 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+00:00 +0: loading C:/Users/<WINDOWS_USER>/Documents/GUI-Shell/apps/desktop_flutter/test/broker_client_payload_hash_test.dart
+00:00 +0: C:/Users/<WINDOWS_USER>/Documents/GUI-Shell/apps/desktop_flutter/test/broker_client_payload_hash_test.dart: payload_hash matches the Rust broker null payload vector
+00:00 +1: C:/Users/<WINDOWS_USER>/Documents/GUI-Shell/apps/desktop_flutter/test/broker_client_payload_hash_test.dart: payload_hash canonicalizes object key order
+00:00 +2: C:/Users/<WINDOWS_USER>/Documents/GUI-Shell/apps/desktop_flutter/test/broker_client_payload_hash_test.dart: payload_hash canonicalizes nested payloads
+00:00 +3: C:/Users/<WINDOWS_USER>/Documents/GUI-Shell/apps/desktop_flutter/test/broker_client_payload_hash_test.dart: payload_hash matches Rust broker normalize payload vector
+00:00 +4: C:/Users/<WINDOWS_USER>/Documents/GUI-Shell/apps/desktop_flutter/test/widget_test.dart: GUI Shell desktop app smoke test
+00:03 +5: C:/Users/<WINDOWS_USER>/Documents/GUI-Shell/apps/desktop_flutter/test/widget_test.dart: GUI Shell desktop app has product baseline shell chrome
+00:04 +6: C:/Users/<WINDOWS_USER>/Documents/GUI-Shell/apps/desktop_flutter/test/widget_test.dart: Windows acceptance surfaces expose semantic labels
+00:04 +7: C:/Users/<WINDOWS_USER>/Documents/GUI-Shell/apps/desktop_flutter/test/widget_test.dart: Dashboard shows Phase A complete and Phase B complete
+00:05 +8: C:/Users/<WINDOWS_USER>/Documents/GUI-Shell/apps/desktop_flutter/test/widget_test.dart: Status bar shows Phase B owner-use and release not claimed
+00:05 +9: C:/Users/<WINDOWS_USER>/Documents/GUI-Shell/apps/desktop_flutter/test/widget_test.dart: Command palette searches and navigates
+00:07 +10: C:/Users/<WINDOWS_USER>/Documents/GUI-Shell/apps/desktop_flutter/test/widget_test.dart: Problems panel shows release blockers without Phase B failure
+00:08 +11: C:/Users/<WINDOWS_USER>/Documents/GUI-Shell/apps/desktop_flutter/test/widget_test.dart: Evidence center shows strict Windows expected failure
+00:08 +12: C:/Users/<WINDOWS_USER>/Documents/GUI-Shell/apps/desktop_flutter/test/widget_test.dart: Evidence center exposes display-only export and snapshot compare
+00:09 +13: C:/Users/<WINDOWS_USER>/Documents/GUI-Shell/apps/desktop_flutter/test/widget_test.dart: Recovery playbook marks Windows evidence safe for Phase B
+00:09 +14: C:/Users/<WINDOWS_USER>/Documents/GUI-Shell/apps/desktop_flutter/test/widget_test.dart: Settings screen searches and filters phase release settings
+00:09 +15: C:/Users/<WINDOWS_USER>/Documents/GUI-Shell/apps/desktop_flutter/test/widget_test.dart: Trust and Authority surfaces are restored
+00:09 +16: C:/Users/<WINDOWS_USER>/Documents/GUI-Shell/apps/desktop_flutter/test/widget_test.dart: Runtime detail pane and audit filters are visible
+00:10 +17: C:/Users/<WINDOWS_USER>/Documents/GUI-Shell/apps/desktop_flutter/test/widget_test.dart: Setup Doctor client surface is structured and non-authoritative
+00:10 +18: C:/Users/<WINDOWS_USER>/Documents/GUI-Shell/apps/desktop_flutter/test/widget_test.dart: product client renders broker-mediated authority snapshot
+00:10 +19: C:/Users/<WINDOWS_USER>/Documents/GUI-Shell/apps/desktop_flutter/test/widget_test.dart: product client fails closed when broker is unavailable
+00:10 +20: C:/Users/<WINDOWS_USER>/Documents/GUI-Shell/apps/desktop_flutter/test/widget_test.dart: product client fails closed on authentication rejection
+00:10 +21: C:/Users/<WINDOWS_USER>/Documents/GUI-Shell/apps/desktop_flutter/test/widget_test.dart: product client fails closed on stale broker session
+00:10 +22: C:/Users/<WINDOWS_USER>/Documents/GUI-Shell/apps/desktop_flutter/test/widget_test.dart: product client fails closed on malformed broker response
+00:10 +23: C:/Users/<WINDOWS_USER>/Documents/GUI-Shell/apps/desktop_flutter/test/widget_test.dart: Setup Doctor shows lightweight environment snapshot
+00:10 +24: C:/Users/<WINDOWS_USER>/Documents/GUI-Shell/apps/desktop_flutter/test/widget_test.dart: local client reads structured snapshot data
+00:10 +25: C:/Users/<WINDOWS_USER>/Documents/GUI-Shell/apps/desktop_flutter/test/widget_test.dart: Setup Doctor product export is formal app-generated evidence
+00:10 +26: C:/Users/<WINDOWS_USER>/Documents/GUI-Shell/apps/desktop_flutter/test/widget_test.dart: Setup Doctor product export creates installed first-run config
+00:10 +27: C:/Users/<WINDOWS_USER>/Documents/GUI-Shell/apps/desktop_flutter/test/widget_test.dart: local snapshot fallback does not claim release-ready
+00:10 +28: C:/Users/<WINDOWS_USER>/Documents/GUI-Shell/apps/desktop_flutter/test/widget_test.dart: local snapshot parse failure falls back safely
+00:10 +29: C:/Users/<WINDOWS_USER>/Documents/GUI-Shell/apps/desktop_flutter/test/widget_test.dart: Setup Doctor UI displays local diagnostic data
+00:10 +30: C:/Users/<WINDOWS_USER>/Documents/GUI-Shell/apps/desktop_flutter/test/widget_test.dart: Approval Center does not expose hidden full payload
+00:10 +31: All tests passed!
+
+===== windows_logs/phase4_flutter_build_windows.log =====
+timestamp_start: 2026-06-06T17:40:39.7314420Z
+timestamp_end: 2026-06-06T17:41:04.6103308Z
+working_directory: <WINDOWS_USER_HOME>\Documents\GUI-Shell\apps\desktop_flutter
+command: flutter build windows
+exit_code: 0
+--- output ---
+Resolving dependencies...
+Downloading packages...
+  flutter_lints 3.0.2 (6.0.0 available)
+  lints 3.0.0 (6.1.0 available)
+  matcher 0.12.19 (0.12.20 available)
+  meta 1.18.0 (1.18.3 available)
+  test_api 0.7.11 (0.7.12 available)
+  vector_math 2.2.0 (2.4.0 available)
+Got dependencies!
+6 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+Building Windows application...                                    19.4s
+√ Built build\windows\x64\runner\Release\gui_shell_desktop.exe
+
+===== windows_logs/phase6_flutter_artifact_hash.log =====
+timestamp_start: 2026-06-06T17:42:14.0418946Z
+timestamp_end: 2026-06-06T17:42:15.1110352Z
+working_directory: <WINDOWS_USER_HOME>\Documents\GUI-Shell
+command: Get-FileHash apps\desktop_flutter\build\windows\x64\runner\Release\gui_shell_desktop.exe -Algorithm SHA256
+exit_code: 0
+--- output ---
+
+Algorithm       Hash                                                                   Path
+---------       ----                                                                   ----
+SHA256          785B464BC04091169657C041F51314DA8C2961BFBD1E022369BA0F2D59B67468       <WINDOWS_USER_HOME>\Documents\GUI-...
+
+===== windows_logs/phase6_broker_artifact_hash.log =====
+timestamp_start: 2026-06-06T17:42:15.1269675Z
+timestamp_end: 2026-06-06T17:42:16.3649373Z
+working_directory: <WINDOWS_USER_HOME>\Documents\GUI-Shell
+command: Get-FileHash native\rust_helper\target\release\gui_shell_rust_helper.exe -Algorithm SHA256
+exit_code: 0
+--- output ---
+
+Algorithm       Hash                                                                   Path
+---------       ----                                                                   ----
+SHA256          515B2D09839BB629670B76A94CE6DC522CDDE626424D1BB7675FB035D7606C59       <WINDOWS_USER_HOME>\Documents\GUI-...
