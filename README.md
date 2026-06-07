@@ -1,14 +1,39 @@
-# GUI-Shell
+<div align="center">
 
-GUI-Shell is a Windows-first desktop Runtime Operation Shell for operating local runtimes, agents, tools, and helper services through explicit contracts instead of hidden authority.
+# 🦝 GUI-Shell
 
-It combines a Flutter desktop UI, a Rust broker/helper, Python validation tooling, JSON Schema contracts, and conformance tests. The project is structured so reviewers can inspect how authority, approval, audit, recovery, and evidence gates are represented.
+**A Windows-first desktop Runtime Operation Shell that keeps authority behind explicit contracts — not hidden UI state.**
 
-No OpenAI endorsement is claimed.
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Status](https://img.shields.io/badge/status-pre--release%20(0.1.0--phase0)-orange)](release_blockers.registry.json)
+[![Platform](https://img.shields.io/badge/platform-Windows--first-blue)](#windows-first-scope)
+[![Built with](https://img.shields.io/badge/built%20with-Flutter%20%C2%B7%20Rust%20%C2%B7%20Python-informational)](#architecture)
+[![JSON Schemas](https://img.shields.io/badge/JSON%20Schemas-26-success)](specs)
+[![Conformance checks](https://img.shields.io/badge/conformance%20checks-139-success)](tooling/conformance_tests)
+[![Product release](https://img.shields.io/badge/product%20release-gated%20by%20owner%20GO-lightgrey)](#what-is--and-is-not--claimed)
 
-## What GUI-Shell Is
+**English** · [日本語](#-gui-shell-日本語版)
 
-GUI-Shell is a generic Runtime Operation Shell control plane. It is designed to sit between an operator and one or more runtimes, exposing status, approvals, diagnostics, and recovery surfaces without making the UI itself the authority boundary.
+</div>
+
+---
+
+> **TL;DR** — GUI-Shell is a desktop control plane that sits between an operator and one or more local runtimes/agents. Its whole point is a boundary: the UI renders and collects input, but it never *owns* authority. Permissions, approvals, audit, and recovery live behind typed contracts and machine-checked gates. This repository is the public, reviewable slice of that design.
+
+## Who built this — and why that's the point
+
+This project was built by **a non-engineer**: no programming experience, no software background, not an IT professional, and no working knowledge of English. The code, the contracts, and even this README were produced **by directing an LLM** — over a few weeks of **part-time** work, not a full-time effort.
+
+That is not a claim that anyone can do this, and it is not a claim that the result is finished. It's a claim about *where the difficulty actually lives*. The hard part of a system like this was never typing the code. The hard part is **refusing to trust unverified output** — yours, the LLM's, the UI's, an adapter's. So the bet of this project is structural, not manual:
+
+- every capability claim is **bound to a machine-checked gate**, and
+- everything **not yet proven is listed as a release blocker** — not quietly omitted.
+
+If that discipline holds, it shouldn't matter much who typed it. That's the thing being demonstrated.
+
+## What GUI-Shell is
+
+GUI-Shell is a generic **Runtime Operation Shell** control plane. It sits between an operator and one or more runtimes, exposing status, approvals, diagnostics, and recovery surfaces **without making the UI itself the authority boundary**.
 
 The current public package focuses on the desktop implementation and the validation substrate:
 
@@ -19,173 +44,326 @@ The current public package focuses on the desktop implementation and the validat
 - validation, manifest, release-gate, and evidence tooling in `tooling`
 - Windows installer/evidence collectors in `installer/windows`
 
-## Why It Exists
+It is also documented as an **LLM-readable responsibility substrate**: schemas, conformance checks, release gates, approval boundaries, and recovery paths are meant to be read and extended by implementation agents — while the LLM stays non-authoritative and the human operator keeps final approval, recovery, and release authority.
 
-Agent and local-runtime tools often blur UI state, runtime state, diagnostics, and execution authority. GUI-Shell makes those boundaries explicit:
+## Why it exists
 
-- the UI renders and collects operator input
-- Shell Core owns policy-shaped state and contract checks
-- adapters normalize runtime data without granting authority
-- the Rust broker is the native boundary for authority-sensitive helper paths
-- release evidence is separated from product-release claims
+Agent and local-runtime tools routinely blur four different things: UI state, runtime state, diagnostics, and execution authority. GUI-Shell forces them apart:
 
-## Windows-First Desktop Scope
+- the **UI** renders and collects operator input — nothing more;
+- **Shell Core** owns policy-shaped state and contract checks;
+- **adapters** normalize runtime data but cannot grant authority;
+- the **Rust broker** is the intended native boundary for authority-sensitive paths;
+- **release evidence** is kept separate from release *claims*.
 
-The public repository is scoped to the Windows-first desktop path for v1.0 review. Linux remains a development and verification slice. Mobile and macOS are not v1.0 claims.
+## Architecture
 
-Mobile and macOS status:
+```mermaid
+flowchart LR
+    UI["Flutter UI<br/>(render + input only)"]
+    Core["Shell Core<br/>(policy, contracts, approvals)"]
+    Broker["Rust broker/helper<br/>(native authority boundary)"]
+    RT["Runtime / native operation"]
 
-- item: mobile implementation is outside the public v1.0 package
-  classification: post_v1_scope
-  reason: the public package is focused on Windows-first desktop review
-  required_action: validate and publish mobile separately if it becomes part of a later public scope
-  blocks_release: no
-- item: macOS host validation is not part of this Windows-first evidence package
-  classification: known_limitation
-  reason: macOS evidence requires a macOS validation host
-  required_action: validate on macOS before claiming macOS support
-  blocks_release: no
+    UI -->|requests| Core
+    Core -->|contract-checked| Broker
+    Broker -->|eligible only| RT
 
-## Architecture Overview
-
-The core boundary is:
-
-```text
-Flutter UI -> Shell Core contracts -> Rust broker/helper -> runtime or native operation
+    NA["Non-authority sources:<br/>LLM output · UI state · adapter metadata<br/>memory · logs · previous state · diagnostics"]
+    NA -.->|cannot grant authority| Core
 ```
 
-Important directories:
+Sensitive actions must map to **capability → permission → approval state → audit event → recovery action**. Nothing in the dotted box above can substitute for that mapping.
 
-- `apps/desktop_flutter`: desktop operator UI
-- `packages/shell_core`: runtime-neutral policy, approval, audit, recovery, and state helpers
-- `packages/blue_tanuki_adapter`: reference adapter boundary example
-- `native/rust_helper`: broker IPC, audit anchor, diagnostics, and native helper logic
-- `specs`: JSON Schema contracts
-- `tooling/conformance_tests`: conformance checks for authority and evidence behavior
-- `installer/windows`: Windows staging and evidence collectors
+Key directories:
 
-## Safety / Authority Boundary
+| Path | Role |
+|---|---|
+| `apps/desktop_flutter` | desktop operator UI |
+| `packages/shell_core` | runtime-neutral policy, approval, audit, recovery, state |
+| `packages/blue_tanuki_adapter` | reference adapter boundary example |
+| `native/rust_helper` | broker IPC, audit anchor, diagnostics |
+| `specs` | JSON Schema contracts |
+| `tooling/conformance_tests` | authority & evidence conformance checks |
+| `installer/windows` | Windows staging and evidence collectors |
 
-GUI-Shell treats LLM output, UI state, adapter metadata, memory, logs, previous state, and diagnostics as non-authority sources. Sensitive actions must map to capability, permission, approval state, audit event, and recovery action.
+> **Honest note on the boundary.** The Rust broker is the *target* native authority boundary. Today, authority-sensitive logic still runs in the **Python reference implementation** under `packages/shell_core`. Completing the migration to the Rust broker — with broker-mediated Flutter paths and no-Python-runtime product evidence — is an open **release blocker**, not a solved problem (see below).
 
-The public code preserves these constraints:
+## Safety / authority boundary
 
-- Flutter does not own authority decisions
-- adapter metadata cannot grant permission
-- full payload display requires `content_visibility=full`
-- approval edits are field-scoped and revalidated
-- broker command dispatch remains fail-closed unless explicitly eligible
-- audit anchor evidence is separated from external tamper-evidence claims
+GUI-Shell treats LLM output, UI state, adapter metadata, memory, logs, previous state, and diagnostics as **non-authority sources**. The public code preserves these constraints:
 
-## Validation and Evidence
+- Flutter does not own authority decisions;
+- adapter metadata cannot grant permission;
+- full payload display requires `content_visibility=full`;
+- approval edits are field-scoped and revalidated (re-hashed);
+- broker command dispatch is **fail-closed** unless explicitly eligible;
+- audit-anchor evidence is kept separate from external tamper-evidence claims.
 
-Core validation commands:
+## Validation & evidence
+
+These numbers were produced by actually running the checks, not copied from a doc:
 
 ```bash
 python3 tooling/schema_check/check_schemas.py
+# schema check passed: 26 schemas, 26 examples, 28 negative fixtures
+
 python3 tooling/conformance_tests/run_conformance_skeleton.py
-python3 tooling/manifest.py --check
-python3 tooling/release_gate_check.py
+# conformance skeleton passed: 139 checks
+
 python3 tooling/validate_all.py --python-only
+# release runtime assertions: 12 passed, 0 failed (scope: CONFIG, FIXTURE)
+# linux desktop build smoke: passed · linux launch smoke: passed
 ```
 
-Native and UI validation when toolchains are available:
+Native / UI passes, when toolchains are available:
 
 ```bash
 cd native/rust_helper && cargo test
-cd apps/desktop_flutter && flutter analyze
-cd apps/desktop_flutter && flutter test
-dart format --output=none --set-exit-if-changed apps/desktop_flutter
+cd apps/desktop_flutter && flutter analyze && flutter test
 ```
 
-## For AI Agents / Codex
+> Conformance currently reports **139** checks on a clean run. (`QUICKSTART.md` / `CLAIM.md` still say *138* — a documentation lag to reconcile, not a regression.)
 
-Agent-facing operating rules are part of the public package:
+## What is — and is NOT — claimed
+
+**Claimed (and backed by evidence):**
+
+- a public, open-source **launch** of the reviewable desktop + validation slice;
+- a **PC / Windows-first AI Runtime / Agent Operation Shell** at **Phase B owner-use** — the owner can use the desktop shell for daily local operation across status, problems, evidence, recovery, trust, runtime, and authority surfaces;
+- the Python-layer validation and Linux build/launch smoke results shown above.
+
+**NOT claimed:**
+
+- ❌ **No completed product release.** `release_ready` is `false`.
+- ❌ No OpenAI endorsement.
+- ❌ No verified macOS support (unverified planned target).
+- ❌ No mobile claim (mobile is `post_v1_scope`).
+- ❌ No public-standard adoption, broad third-party interoperability, or installed-product behavior is proven by the LLM-substrate work.
+- ❌ Public proof assets are review material, **not** a replacement for the private release gate.
+
+**Open release blockers (6, all active) before any completed product release:**
+
+1. `windows_evidence_provenance_isolation` — isolated Windows source/artifact/evidence provenance must pass machine validation.
+2. `windows_installer_first_run_smoke` — native installed first-run evidence (broker-mediated launch, no-Python-runtime launch).
+3. `windows_setup_doctor_smoke` — installed app must emit machine-readable Setup Doctor evidence.
+4. `windows_broker_installed_smoke` — installed Rust broker launch/connect/restart/crash evidence.
+5. `audit_anchor_external_tamper_evidence_proof` — local HMAC anchor does not prove admin/root rewrite resistance.
+6. `owner_go` — explicit owner GO, recorded separately, only after the above pass.
+
+The same registry also tracks the **authority migration** (authority-sensitive logic moving from the Python reference implementation to the Rust broker) as release-blocking. See `release_blockers.registry.json` and `CLAIM.md` for the canonical wording.
+
+## Project status
+
+Pre-release (`0.1.0-phase0`). Phase B owner-use is complete; Windows-first product release evidence and owner GO are not. The public package is for **code review, architecture review, and safety-boundary review** — and as application context for Codex / agent tooling.
+
+`release_ready` is **not** asserted by this repository.
+
+## Getting started
+
+Requires Flutter 3.22.x+, Rust, and Python 3.12+.
+
+```bash
+# desktop
+cd apps/desktop_flutter
+flutter pub get
+flutter run -d windows        # or: flutter run -d linux (dev/verification slice)
+```
+
+```bash
+# Python-only review pass
+python3 tooling/validate_all.py --python-only
+```
+
+See `QUICKSTART.md` for the Phase B owner-launch path (`scripts/launch_owner_desktop.sh`), which does **not** assert release readiness.
+
+## For AI agents / Codex
+
+GUI-Shell presents an LLM-readable responsibility substrate: schemas, conformance checks, release gates, approval boundaries, audit mapping, and recovery paths are meant to be inspectable and extendable by implementation agents **without treating the LLM as an authority source**. Operating rules live in:
 
 - `AGENTS.md`
 - `docs/agents/AGENT_OPERATION_GUIDE.md`
 - `docs/agents/PUBLIC_REPO_BOUNDARY.md`
 
-These files define safe edit zones, restricted release/evidence paths, required validation, and public/private boundary expectations for Codex-like agents.
+## Roadmap & documents
 
-## Windows Proof Assets
+- Release gating & non-claims: `CLAIM.md`, `RELEASE_CHECKLIST.md`, `release_blockers.registry.json`
+- Execution order (Phase 0 → release hardening): `ROADMAP.md`
+- Public overviews: `docs/public/PROJECT_OVERVIEW.md`, `docs/public/ARCHITECTURE_SUMMARY.md`, `docs/public/SAFETY_AND_RELEASE_GATES.md`
+- Security: `SECURITY.md`, `SECURITY_REVIEW.md`, `docs/security/IPC_THREAT_MODEL.md`
 
-Public Windows evidence summaries live under:
+## License
 
-```text
-public_assets/windows_proof_pack/
+[MIT](LICENSE) © 2026 GUI Shell contributors.
+
+---
+---
+
+<div align="center">
+
+# 🦝 GUI-Shell （日本語版）
+
+**権限を「隠れたUIの状態」ではなく「明示的な契約」の背後に置く、Windows優先のデスクトップ Runtime Operation Shell。**
+
+[English](#-gui-shell) · **日本語**
+
+</div>
+
+> **要点** — GUI-Shell は、オペレーターと1つ以上のローカルランタイム／エージェントの間に立つデスクトップ制御プレーンです。核心は「境界」にあります。UIは描画と入力収集を担うだけで、権限を**保有しません**。権限・承認・監査・復旧は、型付き契約と機械検証ゲートの背後にあります。本リポジトリは、その設計の公開・レビュー可能なスライスです。
+
+## 誰が作ったか — そしてそれが何を意味するか
+
+本プロジェクトは**非エンジニア**が作りました。プログラミング経験なし、ソフトウェアの素地なし、IT職ではなく、英語の実務知識もありません。コードも契約も、このREADMEさえも、**LLMへの指示だけ**で生成しました。期間は**1ヶ月未満**、しかも専業ではなく**片手間**です。
+
+これは「誰でもできる」という主張でも、「完成した」という主張でもありません。**難所が実際にどこにあるか**についての主張です。この種のシステムの難所は、コードを書くことではありませんでした。難所は、**検証されていない出力を信用しないこと**です — 自分の出力も、LLMの出力も、UIも、アダプタも。だからこの賭けは手作業ではなく構造に置かれています。
+
+- すべての能力の主張は**機械検証ゲートに紐付き**、
+- **まだ証明できていないものは release blocker として明示**しています — こっそり省略はしません。
+
+その規律が保たれるなら、誰が打鍵したかは大きな問題ではないはずです。実証したいのはそこです。
+
+## GUI-Shell とは
+
+GUI-Shell は汎用の **Runtime Operation Shell** 制御プレーンです。オペレーターと複数ランタイムの間に立ち、ステータス・承認・診断・復旧の各面を提供しますが、**UI自体を権限境界にはしません**。
+
+公開パッケージはデスクトップ実装と検証基盤に焦点を当てています。
+
+- `apps/desktop_flutter`：デスクトップ操作UI（Flutter）
+- `native/rust_helper`：broker/helper（Rust）
+- `packages`：Shell Core とアダプタ群
+- `specs`：JSON Schema 契約
+- `tooling`：検証・manifest・release-gate・証跡ツール
+- `installer/windows`：Windows インストーラ／証跡収集
+
+加えて **LLM可読の責任基盤**として文書化されています。スキーマ・適合チェック・リリースゲート・承認境界・復旧経路は、実装エージェントが読み取り・拡張できることを意図しています。一方でLLMは非権威のままであり、最終承認・復旧・リリース権限は人間のオペレーターが保持します。
+
+## なぜ存在するか
+
+エージェント／ローカルランタイム系ツールは、UI状態・ランタイム状態・診断・実行権限という別物を混ぜがちです。GUI-Shell はこれらを分離します。
+
+- **UI** は描画と入力収集のみ
+- **Shell Core** がポリシー状態と契約チェックを保有
+- **アダプタ** はデータを正規化するが権限は付与できない
+- **Rust broker** は権限依存パスの「目標とする」ネイティブ境界
+- **リリース証跡**はリリース「主張」と分離
+
+## アーキテクチャ
+
+```mermaid
+flowchart LR
+    UI["Flutter UI<br/>（描画・入力のみ）"]
+    Core["Shell Core<br/>（ポリシー・契約・承認）"]
+    Broker["Rust broker/helper<br/>（ネイティブ権限境界）"]
+    RT["ランタイム / ネイティブ操作"]
+
+    UI -->|要求| Core
+    Core -->|契約検証済| Broker
+    Broker -->|適格時のみ| RT
+
+    NA["非権威ソース：<br/>LLM出力・UI状態・アダプタmeta<br/>memory・log・過去状態・診断"]
+    NA -.->|権限を付与できない| Core
 ```
 
-The proof pack contains sanitized indexes, hashes, selected validation logs, and redacted evidence copies. It does not contain the private repository's raw `release_evidence/` directory as canonical release evidence.
+機微な操作は **capability → permission → 承認状態 → 監査イベント → 復旧アクション** に必ず対応付けられます。上図の点線内のものは、この対応付けの代わりにはなりません。
 
-## What Is Not Claimed
+> **境界についての正直な注記。** Rust broker は「目標とする」ネイティブ権限境界です。現状、権限依存ロジックはまだ `packages/shell_core` 配下の **Python 参照実装**で動いています。Rust broker への移行完了（broker経由のFlutterパス、Pythonランタイム非依存の製品証跡）は、解決済みの事項ではなく**未解決の release blocker** です（下記参照）。
 
-- No OpenAI endorsement is claimed.
-- No completed product release is claimed.
-- Strict release remains gated by owner GO.
-- Mobile and macOS are not v1.0 product claims.
-- Public proof assets are review material, not a replacement for the private release gate.
+## 安全 / 権限境界
 
-Current release blockers for completed product release:
+GUI-Shell は LLM出力・UI状態・アダプタmeta・memory・log・過去状態・診断を**非権威ソース**として扱います。公開コードは以下を保持します。
 
-- item: explicit owner GO is absent
-  classification: release_blocker
-  registry_id: owner_go
-  reason: owner GO must be recorded separately from CI and Windows evidence
-  required_action: record explicit owner GO only after strict evidence review
-  blocks_release: yes
+- Flutter は権限判断を保有しない
+- アダプタmeta は権限を付与できない
+- 全ペイロード表示は `content_visibility=full` を要する
+- 承認編集はフィールド限定かつ再検証（再ハッシュ）
+- broker のコマンド発行は、明示的に適格でない限り **fail-closed**
+- 監査アンカー証跡は外部 tamper-evidence 主張と分離
 
-## Current Status
+## 検証 & 証跡
 
-Windows-first desktop evidence has been collected and summarized for review. The public package is intended for code review, architecture review, safety-boundary review, and OpenAI/Codex application context.
-
-`release_ready` is not asserted by this repository.
-
-## How To Run
-
-Install Flutter 3.22.x or newer, Rust, and Python 3.12 or newer. Then:
+以下の数値は、ドキュメントからの転記ではなく、クロちゃんが実際に走らせて得たものです。
 
 ```bash
+python3 tooling/schema_check/check_schemas.py
+# schema check passed: 26 schemas, 26 examples, 28 negative fixtures
+
+python3 tooling/conformance_tests/run_conformance_skeleton.py
+# conformance skeleton passed: 139 checks
+
+python3 tooling/validate_all.py --python-only
+# release runtime assertions: 12 passed, 0 failed（scope: CONFIG, FIXTURE）
+# linux desktop build smoke: passed ／ linux launch smoke: passed
+```
+
+> 適合チェックはクリーン実行で現在 **139** 件です。（`QUICKSTART.md` / `CLAIM.md` は *138* のまま — リグレッションではなく、ドキュメントの追従漏れです。）
+
+## 主張すること / しないこと
+
+**主張すること（証跡あり）：**
+
+- レビュー可能なデスクトップ＋検証スライスの**公開ローンチ**
+- **PC / Windows優先の AI Runtime / Agent Operation Shell**、**Phase B（オーナー利用）**段階 — オーナーは status／problems／evidence／recovery／trust／runtime／authority の各面で、デスクトップシェルを日常のローカル運用に使用可能
+- 上記の Python層検証と Linux build/launch smoke の結果
+
+**主張しないこと：**
+
+- ❌ **完成製品リリースではない。** `release_ready` は `false`。
+- ❌ OpenAI の推奨は受けていない。
+- ❌ macOS サポートは未検証（計画上の目標のみ）。
+- ❌ モバイルは対象外（`post_v1_scope`）。
+- ❌ LLM基盤の作業は、公開標準の採用・広範な相互運用・インストール済み製品挙動を証明しない。
+- ❌ 公開 proof assets はレビュー材料であり、private リリースゲートの代替**ではない**。
+
+**完成製品リリース前に残る release blocker（6件、すべて active）：**
+
+1. `windows_evidence_provenance_isolation` — 隔離されたWindows source/artifact/evidence の来歴が機械検証を通ること。
+2. `windows_installer_first_run_smoke` — ネイティブのインストール済み初回起動証跡（broker経由起動、Pythonランタイム非依存起動）。
+3. `windows_setup_doctor_smoke` — インストール済みアプリが機械可読の Setup Doctor 証跡を出力すること。
+4. `windows_broker_installed_smoke` — インストール済み Rust broker の起動／接続／再起動／クラッシュ証跡。
+5. `audit_anchor_external_tamper_evidence_proof` — ローカルHMACアンカーは管理者/root による改竄耐性を証明しない。
+6. `owner_go` — 明示的なオーナーGO。上記通過後に、別個に記録。
+
+同じ registry は、**権限移行**（権限依存ロジックを Python 参照実装から Rust broker へ移すこと）も release-blocking として追跡しています。正式な文言は `release_blockers.registry.json` と `CLAIM.md` を参照。
+
+## 進捗ステータス
+
+Pre-release（`0.1.0-phase0`）。Phase B（オーナー利用）は完了。Windows優先の製品リリース証跡とオーナーGOは未完。公開パッケージは**コードレビュー・アーキテクチャレビュー・安全境界レビュー**、および Codex／エージェントツール向けの応募コンテキストを目的としています。
+
+本リポジトリは `release_ready` を**主張しません**。
+
+## はじめ方
+
+Flutter 3.22.x 以上、Rust、Python 3.12 以上が必要です。
+
+```bash
+# デスクトップ
 cd apps/desktop_flutter
 flutter pub get
-flutter run -d windows
+flutter run -d windows        # または: flutter run -d linux（開発/検証スライス）
 ```
 
-On Linux development hosts:
-
 ```bash
-cd apps/desktop_flutter
-flutter pub get
-flutter run -d linux
-```
-
-## How To Validate
-
-For a Python-only review pass:
-
-```bash
+# Python のみのレビューパス
 python3 tooling/validate_all.py --python-only
 ```
 
-For Rust broker validation:
+Phase B のオーナー起動パス（`scripts/launch_owner_desktop.sh`）は `QUICKSTART.md` を参照。これは**リリース準備完了を主張しません**。
 
-```bash
-cd native/rust_helper
-cargo test
-```
+## AIエージェント / Codex 向け
 
-For Flutter desktop validation:
+GUI-Shell は LLM可読の責任基盤を提示します。スキーマ・適合チェック・リリースゲート・承認境界・監査マッピング・復旧経路は、**LLMを権威ソースとして扱うことなく**、実装エージェントが検査・拡張できることを意図しています。運用ルールは以下に。
 
-```bash
-cd apps/desktop_flutter
-flutter analyze
-flutter test
-```
+- `AGENTS.md`
+- `docs/agents/AGENT_OPERATION_GUIDE.md`
+- `docs/agents/PUBLIC_REPO_BOUNDARY.md`
 
-## Roadmap
+## ロードマップ & ドキュメント
 
-The current public package centers on Windows-first desktop review. See `ROADMAP.md`, `CLAIM.md`, and `RELEASE_CHECKLIST.md` for release-gate classification and known non-claims.
+- リリースゲート・非主張：`CLAIM.md`, `RELEASE_CHECKLIST.md`, `release_blockers.registry.json`
+- 実行順序（Phase 0 → リリース硬化）：`ROADMAP.md`
+- 公開概要：`docs/public/PROJECT_OVERVIEW.md`, `docs/public/ARCHITECTURE_SUMMARY.md`, `docs/public/SAFETY_AND_RELEASE_GATES.md`
+- セキュリティ：`SECURITY.md`, `SECURITY_REVIEW.md`, `docs/security/IPC_THREAT_MODEL.md`
 
-## OpenAI/Codex Relevance
+## ライセンス
 
-GUI-Shell is relevant to Codex and agent tooling because it presents an LLM-readable responsibility substrate: schemas, conformance checks, release gates, approval boundaries, audit mapping, and recovery paths are intended to be inspectable by implementation agents without treating the LLM as an authority source.
+[MIT](LICENSE) © 2026 GUI Shell contributors.
