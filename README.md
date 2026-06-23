@@ -203,6 +203,7 @@ The role split is explicit:
 
 Start here:
 
+- `docs/specs/gui-shell-spec-v1.md` — the GUI-Shell v1 implementation specification
 - `docs/standards/llm-readable-extension-surface.md` — the substrate definition and role model
 - `docs/standards/gui-shell-extended-standard.md` — the extended standard (Phase 0 lock)
 - `AGENTS.md`, `docs/agents/AGENT_OPERATION_GUIDE.md`, `docs/agents/PUBLIC_REPO_BOUNDARY.md` — agent operating rules, safe edit zones, and the public/private boundary
@@ -391,6 +392,7 @@ Phase B のオーナー起動パス（`scripts/launch_owner_desktop.sh`）は `Q
 
 ここから読み始めてください。
 
+- `docs/specs/gui-shell-spec-v1.md` — GUI-Shell v1 実装仕様
 - `docs/standards/llm-readable-extension-surface.md` — 基盤の定義と役割モデル
 - `docs/standards/gui-shell-extended-standard.md` — 拡張標準（Phase 0 ロック）
 - `AGENTS.md`, `docs/agents/AGENT_OPERATION_GUIDE.md`, `docs/agents/PUBLIC_REPO_BOUNDARY.md` — エージェント運用ルール、安全編集ゾーン、public/private 境界

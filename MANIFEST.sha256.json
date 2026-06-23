@@ -112,7 +112,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "ca0bb3aaafc9b6636a4d2730434cbe19f66ee88fcbb02ab89cc57c04482e6d6d"
+      "sha256": "9d57738077d7c016c0ae9024c48a3afd9a98fb8b0653b158fe895dcbc2b2d37d"
     },
     {
       "path": "RELEASE_CHECKLIST.md",
@@ -503,12 +503,16 @@
       "sha256": "710e766fa4f7db2370fd3bdaeb54622faa48245edd3594263fc14dac2916d3f1"
     },
     {
+      "path": "docs/specs/gui-shell-spec-v1.md",
+      "sha256": "d3de205bdbca4e12a19e063ffd0112aa16d0561c1c3069f877944a5e3909404b"
+    },
+    {
       "path": "docs/specs/runtime-catalog.md",
       "sha256": "81a33761e65875012202eba15ed6843ef2c3d18905aba3b8e594e9aafd70cc66"
     },
     {
       "path": "docs/standards/gui-shell-extended-standard.md",
-      "sha256": "93332d611d26096f2ef225ea1f6f26a43c61fd524a7384d805d280c7b866ace1"
+      "sha256": "dbdff116653181d99914bdd8b8845faf9ed0f5e71fad558b5d7e92cde544356b"
     },
     {
       "path": "docs/standards/llm-readable-extension-surface.md",
@@ -1224,7 +1228,7 @@
     },
     {
       "path": "tooling/conformance_tests/run_conformance_skeleton.py",
-      "sha256": "bfd550702197e43c34dcda1248b200e5653254b4734d3c9cc7e7d955c68c104a"
+      "sha256": "5d29a72ad1f8902ad1c43f30c75437be7b04e3fe743e135f6829cec32b04f112"
     },
     {
       "path": "tooling/evidence_bundle.py",
