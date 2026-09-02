@@ -1,17 +1,23 @@
-# Safety And Governance
+# 安全と統治
 
-Safety model:
+安全境界:
 
-- LLM output is not authority.
-- UI state is not authority.
-- adapter metadata is not authority.
-- diagnostics are not authority.
-- sensitive actions require capability, permission, approval, audit event, and recovery mapping.
+- LLM output は権限ではない。
+- UI state は権限ではない。
+- Adapter metadata は権限ではない。
+- diagnostics は権限ではない。
+- sensitive action には Capability、Permission、Approval、AuditEvent、RecoveryAction の対応が必要である。
 
-Release governance:
+Release 統治:
 
-- item: owner GO is absent
+- item: owner GO がない
   classification: release_blocker
-  reason: public evidence does not replace explicit owner approval
-  required_action: record owner GO only after strict release review
+  reason: 公開証拠は明示的な owner Approval を代替しない。
+  required_action: strict release review 後に限り owner GO を記録する。
   blocks_release: yes
+
+## 外部公開用英語射影（非正本）
+
+```text
+LLM output, UI state, adapter metadata, and diagnostics never grant authority. Sensitive actions require capability, permission, approval, audit, and recovery mapping; public evidence does not replace owner GO.
+```

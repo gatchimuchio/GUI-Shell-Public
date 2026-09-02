@@ -1,26 +1,28 @@
-# Project Overview
+# プロジェクト概要
 
-GUI-Shell is a Windows-first desktop Runtime Operation Shell. It provides an inspectable control surface for local runtimes and agent-oriented tools while preserving explicit authority, approval, audit, and recovery boundaries.
+GUI-Shell は、Windows を第一対象とする desktop Runtime Operation Shell である。local Runtime と Agent 向け tool の操作面を提供しながら、権限、Approval、Audit、Recovery の境界を明示状態に保つ。
 
-The public repository contains the reviewable implementation package:
+公開 repository は、次の review 可能な実装面を含む。
 
-- Flutter desktop UI
-- Rust broker/helper
-- Shell Core and adapter packages
-- JSON Schema contracts
-- conformance and validation tooling
-- Windows staging and evidence collection scripts
-- sanitized Windows proof assets
+- Flutter によるデスクトップ操作画面
+- Rust による権限ブローカーと補助機能
+- Shell Core と Adapter package
+- JSON Schema contract
+- conformance と local validation tooling
+- Windows の準備・証拠収集スクリプト
+- 墨消し済み Windows proof asset
 
-No OpenAI endorsement is claimed. No completed product release is claimed.
+Rust Security Broker の production IPC を権限に敏感な本番境界とし、`no-python-runtime` と `no-ffi-authority` を release assertion として保持する。ただし、公開 source と local validation の存在だけでは Windows installed product proof にならず、対応する installed-path evidence は未解消の release blocker である。
 
-Release status:
+公開 package は、元の local / private evidence 全体を複製しない。`public_assets/windows_proof_pack/` は公開レビュー用の写しであり、canonical release evidence ではない。
 
-- item: owner GO is absent
+現在の release 境界:
+
+- item: owner GO がない
   classification: release_blocker
   registry_id: owner_go
-  reason: public review material does not replace final owner approval
-  required_action: record owner GO only after strict evidence review
+  reason: 公開資料は最終 owner Approval を代替しない。
+  required_action: 実測証拠と厳格検証の完了後に限り owner GO を記録する。
   blocks_release: yes
 
-Rust Security Broker production IPC, no-python-runtime, and no-ffi-authority checks remain visible release gate concepts in the public package.
+OpenAI による推薦、認証、提携、採択、および完成製品 release は主張しない。

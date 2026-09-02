@@ -1,11 +1,9 @@
-# Screenshot Index
+# Screenshot 収録状況
 
-No screenshots are included in this public proof pack because no sanitized screenshot source directory was available in the private workspace at migration time.
+private workspace から公開用に安全確認済みの screenshot source directory を取得できなかったため、本 proof pack に screenshot は収録していない。
 
-Release status:
-
-- item: screenshots omitted from public proof pack
+- item: 公開 proof pack に screenshot がない
   classification: known_limitation
-  reason: sanitized screenshots were not available during public migration
-  required_action: add redacted screenshots only after checking for local usernames, hostnames, and private paths
+  reason: 公開移行時点で、安全な墨消し済み screenshot を利用できなかった。
+  required_action: local username、hostname、private path が含まれないことを確認した後に限り、墨消し済み screenshot を追加する。
   blocks_release: no

@@ -1,66 +1,47 @@
-# Mobile Status
+# Mobile 状態
 
-Mobile is not part of v1.0 completed product release unless owner explicitly changes scope.
+所有者が明示的に範囲を変更しない限り、Mobile は v1.0 完成製品 release に含めない。
 
-Mobile is `post_v1_scope`. The mobile Flutter app may remain as a bounded companion surface, but this cleanup does not improve mobile and does not track `apps/mobile_flutter/pubspec.lock`; local Flutter tooling may regenerate it during mobile-only work.
+Mobile は `post_v1_scope` である。本 GUI-Shell-Public package は `apps/mobile_flutter/` を収録せず、Mobile implementation、build、実端末挙動を証明しない。
 
-Mobile is excluded from the v1.0 release gate, CI product claim, and advertised support surface unless the owner explicitly opts mobile into the release scope.
+所有者が Mobile を release 範囲へ明示的に追加しない限り、v1.0 release gate、local validation の製品主張、広告する support 表層から除外する。
 
-## Implemented Areas
+## 公開 package における状態
 
-- item: mobile dashboard
+- item: 公開パッケージ内の Mobile アプリソース
   classification: post_v1_scope
-  reason: mobile full release is outside v1.0 desktop scope.
+  reason: 公開 package は Windows-first の desktop レビュー範囲であり、Mobile のソースを収録しない。
+  required_action: Mobile scopeを明示採用する場合は、source、contract、権限境界、実端末evidence、packagingを別作業として追加・検証する。
   blocks_release: no
 
-- item: approval review surface
+## v1後の範囲
+
+- item: 実端末 pairing
   classification: post_v1_scope
-  reason: mobile full release is outside v1.0 desktop scope.
+  reason: Mobile 完全 release は v1.0 desktop 範囲外である。
+  required_action: mobile release 段階で完了する。
   blocks_release: no
 
-- item: notifications surface
+- item: push 通知
   classification: post_v1_scope
-  reason: mobile full release is outside v1.0 desktop scope.
+  reason: Mobile 完全 release は v1.0 desktop 範囲外である。
+  required_action: mobile release 段階で完了する。
   blocks_release: no
 
-- item: runtime status surface
+- item: mobile 用 Shell Core IPC
   classification: post_v1_scope
-  reason: mobile full release is outside v1.0 desktop scope.
+  reason: Mobile 完全 release は v1.0 desktop 範囲外である。
+  required_action: mobile release 段階で完了する。
   blocks_release: no
 
-- item: emergency stop request surface
+- item: 暗号学的な端末結合
   classification: post_v1_scope
-  reason: mobile full release is outside v1.0 desktop scope.
+  reason: Mobile 完全 release は v1.0 desktop 範囲外である。
+  required_action: mobile release 段階で完了する。
   blocks_release: no
 
-## Post-v1 Scope
-
-- item: real device pairing
+- item: mobile release 用 packaging
   classification: post_v1_scope
-  reason: mobile full release is outside v1.0 desktop scope.
-  required_action: Complete during mobile release phase.
-  blocks_release: no
-
-- item: push notifications
-  classification: post_v1_scope
-  reason: mobile full release is outside v1.0 desktop scope.
-  required_action: Complete during mobile release phase.
-  blocks_release: no
-
-- item: Shell Core IPC for mobile
-  classification: post_v1_scope
-  reason: mobile full release is outside v1.0 desktop scope.
-  required_action: Complete during mobile release phase.
-  blocks_release: no
-
-- item: cryptographic device binding
-  classification: post_v1_scope
-  reason: mobile full release is outside v1.0 desktop scope.
-  required_action: Complete during mobile release phase.
-  blocks_release: no
-
-- item: mobile release packaging
-  classification: post_v1_scope
-  reason: mobile full release is outside v1.0 desktop scope.
-  required_action: Complete during mobile release phase.
+  reason: Mobile 完全 release は v1.0 desktop 範囲外である。
+  required_action: mobile release 段階で完了する。
   blocks_release: no

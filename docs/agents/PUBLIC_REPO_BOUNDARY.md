@@ -1,72 +1,74 @@
-# Public Repository Boundary
+# 公開 Repository 境界
 
-This document defines what belongs in the public GUI-Shell repository and what must stay outside it.
+本書は、GUI-Shell-Public に含めてよい対象と、公開してはならない対象を定める。
 
-## Intentionally Public
+## 公開してよい対象
 
-The public repository may contain:
+- ソースコード
+- ローカル検証用ツール
+- Schema と conformance test
+- 公開用の仕様、設計、操作文書
+- 墨消し済み Windows proof asset
+- OpenAI / Codex 応募・外部レビュー資料
+- private environment data を含まない example
+- 日本語正本から作成し、非正本であることを明示した外部言語射影
 
-- source code
-- validation tools
-- schema and conformance tests
-- public documentation
-- redacted Windows proof assets
-- OpenAI/Codex application support materials
-- examples that do not reveal private environment data
+これらは、アーキテクチャ、権限境界、検証範囲、Windows-first scope、Agent が読む contract を公開レビューできるようにする。
 
-These files support public review of architecture, authority boundaries, validation coverage, Windows-first scope, and agent-readable development contracts.
+## 公開してはならない対象
 
-## Must Remain Private
+- 未加工の非公開証拠
+- ローカル端末の経路、利用者名、ホスト名
+- 秘密情報、認証情報、トークン
+- owner 専用 log と非公開判断記録
+- 墨消し前 transcript
+- private repository 専用 note
+- workstation 固有情報を含む environment dump
+- `release_evidence/` の raw content
 
-The public repository must not contain:
+公開価値と private data が混在する場合は、由来を記録した墨消し済み copy を作成し、墨消し範囲と証拠上の限界を明示する。
 
-- raw private evidence
-- local machine paths
-- secrets or credentials
-- private owner logs
-- unredacted transcripts
-- owner GO private decision trail
-- private repository-only notes
-- full environment dumps that expose usernames, hostnames, or workstation-specific state
+## 証拠境界
 
-If a file contains public value but also private data, publish a redacted copy and document the redaction.
+`public_assets/windows_proof_pack/` は公開レビュー用の非正本 copy である。
 
-## Evidence Boundary
+Canonical release evidence は release tooling が生成・検証する。公開 asset を手作業で PASS に見せたり、raw evidence として再入力したり、release blocker を閉じるために使ったりしてはならない。
 
-Public proof assets are promotional and reference materials for reviewers.
+`release_evidence/` は公開 source package に含めない。
 
-Canonical release evidence must be produced and validated by release tooling. Public assets must not be fabricated, hand-edited into a pass, or promoted into release evidence.
+Owner GO は公開 Agent が編集する状態ではない。owner GO がないことは報告できるが、記録してはならない。
 
-`release_evidence/` is not part of the public source package. Redacted summaries may live under `public_assets/windows_proof_pack/`.
+## Release 境界
 
-Owner GO is not editable by public agents. Agents may report that owner GO is absent, but must not record it.
+公開 repository が述べられること:
 
-## Release Boundary
+- Windows-first desktop evidence に由来する墨消し済み review copy がある。
+- 列挙した local validation が、実際に実行した範囲で通過した。
+- strict release は canonical evidence と owner GO により引き続き gate される。
 
-The public repository may state:
+公開 repository が述べてはならないこと:
 
-- Windows-first desktop evidence has been collected and summarized.
-- Normal development validation passes when the listed commands pass.
-- Strict release remains gated by owner GO and release evidence policy.
+- 完成製品の release readiness
+- OpenAI の推薦、認証、提携、採択
+- 別途検証していない Mobile または macOS v1.0 support
+- external / signed evidence がない状態での administrator / root 改ざん耐性
 
-The public repository must not state:
+## 言語境界
 
-- completed product release readiness
-- OpenAI endorsement, certification, partnership, or acceptance
-- mobile or macOS v1.0 support without separate validation
-- administrator/root tamper resistance without external or signed evidence
+規定、仕様、設計、監査、運用、release claim の意味正本は日本語とする。
 
-## Boundary Scan Checklist
+英語その他の表層は、国際公開、応募、外部規格との接続に必要な範囲へ限定する。その表層は日本語正本を置き換えず、権限、release readiness、evidence class を独自に変更しない。
 
-Before publishing public changes, scan for:
+## 公開前検査
 
-- `release_ready` true claims
-- owner GO recorded
-- OpenAI endorsement wording
-- Windows user-home paths
-- local usernames
-- API key markers
-- secret-like values
-- token-like values
-- raw `release_evidence/`
-- local build outputs and caches
+次を確認する。
+
+- `release_ready=true` の主張がない。
+- owner GO が記録されていない。
+- OpenAI endorsement の主張がない。
+- Windows user-home path、username、hostname がない。
+- API key、token、secret-like value がない。
+- raw `release_evidence/` がない。
+- local build output と cache がない。
+- 公開 proof copy が canonical evidence と記述されていない。
+- 外部言語射影が日本語正本へ接続されている。

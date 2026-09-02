@@ -1,36 +1,36 @@
-# Mutation Verification
+# 変異検証
 
-Status: public-safe conformance summary
-Scope: public review snapshot documentation only
+> 状態: 公開可能な conformance 概要
+> 射程: 公開 review snapshot の説明
 
-This file records the public conformance intent behind mutation verification references. It is not a request to commit broken mutation code.
+本書は、変異検証が何を確かめるかを公開範囲で記録する。壊れた変異 code を repository へ残す指示ではない。
 
-## Covered Surfaces
+## 対象面
 
-- item: production authority strip mutation coverage
+- item: production Authority Strip の変異検出
   classification: required_for_v1
-  status: passed
-  evidence: conformance imports production authority stripping behavior and is expected to fail if inbound authority keys or authority metadata survive stripping.
+  status: `passed`
+  evidence: conformance は production の権限除去挙動を読み、入力の authority key または authority metadata が残る変異を失敗として検出する。
   blocks_release: no
 
-- item: production approval edit guard mutation coverage
+- item: production Approval 編集 guard の変異検出
   classification: required_for_v1
-  status: passed
-  evidence: conformance imports production `ApprovalQueue` behavior and is expected to fail if authority, sealed, hidden, sacred, or protected fields become editable.
+  status: `passed`
+  evidence: conformance は production の `ApprovalQueue` を読み、authority、sealed、hidden、sacred、protected field を編集可能にする変異を失敗として検出する。
   blocks_release: no
 
-- item: duplicate authority key definitions
+- item: authority key 定義の重複
   classification: required_for_v1
-  status: resolved_for_current_public_scope
-  evidence: production code keeps authority-key handling centralized and conformance covers authority-strip behavior.
+  status: `resolved_for_current_public_scope`
+  evidence: production code は authority key の扱いを一か所に集約し、Authority Strip の挙動を conformance で検査する。
   blocks_release: no
 
-## Current Validation
+## 現在検証
 
-Current public conformance baseline:
-
-```text
-conformance skeleton passed: 139 checks
+```bash
+python3 tooling/conformance_tests/run_conformance_skeleton.py
 ```
 
-Mutation verification is supporting evidence for conformance quality. It does not prove completed product release readiness or installed-product behavior.
+現在の件数と成否は実行出力を証拠とする。保存された過去件数や本書の記述を現在の PASS へ読み替えない。
+
+変異検証は conformance 品質の補助証拠であり、installed-product behavior、canonical Windows evidence、完成製品 release readiness を証明しない。

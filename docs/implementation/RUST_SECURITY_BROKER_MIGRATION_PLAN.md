@@ -1,41 +1,42 @@
-# Rust Security Broker Migration Plan
+# Rust Security Broker 移行計画
 
-Status: public-safe migration summary
-Scope: public review snapshot documentation only
+> 状態: 公開用 migration 概要
+> 射程: GUI-Shell-Public の review package
 
-This file is a public-safe summary so release-facing references resolve. It does not replace private implementation notes, canonical release evidence, or governed release blockers.
+本書は release-facing な参照を解決する公開概要である。非公開実装note、raw evidence、canonical release evidence、`release_blockers.registry.json`を置き換えない。
 
-## Objective
+## 目的
 
-GUI-Shell is moving authority-sensitive runtime responsibilities toward an independent Rust Security Broker process. Flutter remains the replaceable UI layer and must not own authority. Python may remain for tooling, schema validation, conformance, migration parity, and evidence validation, but it must not become the installed active authority runtime dependency for completed product release.
+GUI-Shell は、権限に敏感な実働 Runtime の責任を、独立した Rust Security Broker のプロセスへ移す。Flutter は交換可能な UI 層であり、権限を所有しない。Python は開発用ツール、Schema 検証、適合検査、移行時の同等性検査、証拠検証に残せるが、導入済み完成製品の実働権限経路には依存させない。
 
-## Boundaries
+## 境界
 
-- Rust Security Broker owns authority-sensitive IPC, approval eligibility, audit, recovery, command-envelope gating, and fail-closed broker responses.
-- Flutter owns rendering, navigation, operator input, and local UI state only.
-- Shell Core contracts and schemas remain the contract gate.
-- Adapter metadata, UI state, LLM output, diagnostics, memory, cache, and previous state do not grant authority.
+- Rust Security Broker は authority-sensitive IPC、Approval eligibility、Audit、Recovery、command-envelope gate、fail-closed response を担う。
+- Flutter は rendering、navigation、operator input、local UI state だけを担う。
+- Shell Core contract と Schema は contract gate を保つ。
+- 権限に敏感な Flutter と Rust の接続には独立プロセス IPC を優先し、FFI は権限、署名、承認 token、外部 command 送信、Audit 確定の境界外に限る。
+- Adapter metadata、UI state、LLM output、diagnostics、memory、cache、previous state は権限を付与しない。
 
-## Current Public State
+## 現在の公開状態
 
-- item: broker path visible
+- item: broker path をreviewできる
   classification: required_for_v1
-  reason: broker IPC contracts, Rust helper code, parity assertions, and release runtime assertions are present for review.
-  required_action: keep broker assertions and conformance checks passing.
+  reason: broker IPC contract、Rust helper code、parity assertion、release runtime assertionを公開している。
+  required_action: broker assertion、negative case、conformanceを通過状態に保つ。
   blocks_release: no
 
-- item: active command dispatch
+- item: 実働コマンドの送信
   classification: release_blocker
-  reason: real external command dispatch remains suspended until capability, permission, approval, audit, recovery, and installed-path evidence gates are complete.
-  required_action: do not enable dispatch without explicit governed release work.
+  reason: Capability、Permission、Approval、Audit、Recovery、installed-path evidenceのgateが完了するまで、real external command dispatchはSUSPENDする。
+  required_action: 明示的な統治作業と実測証拠なしにdispatchを有効化しない。
   blocks_release: yes
 
-- item: installed product proof
+- item: 導入済み製品の証拠
   classification: release_blocker
-  reason: completed product release requires installed-path Windows evidence and explicit owner GO as defined in `release_blockers.registry.json`.
-  required_action: collect governed Windows installed-path evidence and pass strict validation before product release claims.
+  reason: 完成製品releaseには、`release_blockers.registry.json`が定めるWindows installed-path evidenceとowner GOが必要である。
+  required_action: native Windowsで統治されたevidenceを収集し、strict local validationを通過する。
   blocks_release: yes
 
-## Non-Claims
+## 非主張
 
-This summary does not claim authority cutover completion, command dispatch readiness, installed-product no-Python proof, or completed product release readiness.
+本概要はauthority cutover、command dispatch readiness、installed productのno-Python-runtime proof、完成製品release readinessを主張しない。public proof copyはこれらを証明しない。

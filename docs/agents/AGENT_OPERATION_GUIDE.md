@@ -1,21 +1,21 @@
-# Agent Operation Guide
+# Agent 作業ガイド
 
-This guide explains how LLM-based development agents should approach public GUI-Shell tasks.
+本書は、LLM を用いる実装 Agent が公開 GUI-Shell repository を変更するときの作業型を示す。規則の正本は `AGENTS.md`、日本語基底の正本は `規定/00_日本語基底規定.md`、公開境界は `docs/agents/PUBLIC_REPO_BOUNDARY.md` である。
 
-## Basic Workflow
+## 基本作業流
 
-1. Inspect the repository state and relevant files before editing.
-2. Identify the task scope and affected boundary.
-3. Avoid authority, release, evidence, owner GO, and credential mutation unless explicitly instructed.
-4. Make small, reviewable diffs.
-5. Run the relevant validation commands.
-6. Report evidence, limits, and release-gate status accurately.
+1. 編集前に repository state、適用規則、関連契約、試験、公開境界を確認する。
+2. task が runtime / control / diagnostic / repair-recovery / build-release / development-only のどの経路に属するかを特定する。
+3. 権限、release、evidence、owner GO、credential を明示指示なしに変更しない。
+4. 必要十分で review 可能な差分に限定する。
+5. 目的に直接対応する local validation を実行する。
+6. 観測事実、未検証範囲、release gate、公開境界を正確に報告する。
 
-## Task Profiles
+GitHub Actions / CI workflow は品質判定基準面ではない。local validation、smoke、release verification、Windows 実機 evidence を、それぞれの証拠範囲を区別して使用する。
 
-### Documentation Edit
+## 文書変更
 
-Allowed files:
+通常の対象:
 
 - `README.md`
 - `QUICKSTART.md`
@@ -23,57 +23,60 @@ Allowed files:
 - `docs/application/`
 - `docs/agents/`
 
-Restricted files:
+注意対象:
 
 - `release_blockers.registry.json`
 - `tooling/release_gate_check.py`
-- canonical release evidence paths
+- 正本リリース証拠の保存経路
 
-Required tests:
+必須事項:
 
-- `python tooling/release_gate_check.py`
-- `python tooling/manifest.py --check`
-- `python tooling/validate_all.py --python-only` when the edit affects release, validation, or evidence language
+- 日本語を意味正本とする。
+- 国際公開に必要な英語は局所射影と明記し、日本語正本と独立した並列正本にしない。
+- release に関係する未完了項目を `release_blocker`、`post_v1_scope`、`known_limitation` に分類する。
+- public proof copy を canonical evidence と表現しない。
 
-Failure handling:
+関連検証:
 
-- Keep public claims conservative.
-- Classify release-sensitive limits as `release_blocker`, `post_v1_scope`, or `known_limitation`.
-- Do not repair release language by weakening a gate.
+```bash
+python3 tooling/manifest.py --check
+python3 tooling/release_gate_check.py
+python3 tooling/validate_all.py --python-only
+```
 
-### UI Edit
+## UI変更
 
-Allowed files:
+通常の対象:
 
-- non-authority UI surfaces under `apps/desktop_flutter/`
-- UI tests under `apps/desktop_flutter/test/`
+- `apps/desktop_flutter/` の非権限 UI surface
+- `apps/desktop_flutter/test/`
 
-Restricted files:
+変更してはならない意味:
 
-- Shell Core authority logic
-- Rust broker authority paths
-- command dispatch or approval-finalization logic
+- Shell Core の authority decision
+- Rust broker の authority path
+- コマンド送信の適格性
+- Approval finalization
 
-Required tests:
+関連検証:
 
-- `flutter analyze`
-- `flutter test`
-- `dart format --output=none --set-exit-if-changed apps/desktop_flutter`
-- Python validation if UI text affects release/evidence claims
+```bash
+cd apps/desktop_flutter
+flutter analyze
+flutter test
+dart format --output=none --set-exit-if-changed .
+```
 
-Failure handling:
+UI の描画成功は UI evidence に限る。Runtime authority や release evidence へ昇格しない。
 
-- Treat UI display success as UI evidence only.
-- Do not claim runtime authority or release evidence from UI tests alone.
+## 検証・tooling変更
 
-### Validation Or Tooling Edit
-
-Allowed files:
+通常の対象:
 
 - `tooling/`
-- validation docs under `docs/public/` or `docs/agents/`
+- 検証説明文書
 
-Restricted files:
+特に慎重に扱う対象:
 
 - `tooling/release_gate_check.py`
 - `tooling/windows_release_evidence.py`
@@ -81,101 +84,90 @@ Restricted files:
 - `tooling/release_runtime_assertions.py`
 - `MANIFEST.sha256.json`
 
-Required tests:
+関連検証:
 
-- `python tooling/schema_check/check_schemas.py`
-- `python tooling/conformance_tests/run_conformance_skeleton.py`
-- `python tooling/manifest.py --check`
-- `python tooling/release_gate_check.py`
-- `python tooling/validate_all.py --python-only`
+```bash
+python3 tooling/schema_check/check_schemas.py
+python3 tooling/conformance_tests/run_conformance_skeleton.py
+python3 tooling/manifest.py --check
+python3 tooling/release_gate_check.py
+python3 tooling/validate_all.py --python-only
+```
 
-Failure handling:
+検査を通すために validator や negative case を弱めない。
 
-- Fix the validator or source contract only when the failure shows a real public package problem.
-- Do not loosen a validator to make a release gate pass.
+## Broker・security変更
 
-### Broker Or Security Edit
-
-Allowed files:
+対象:
 
 - `native/rust_helper/`
 - `docs/security/`
 - `docs/architecture/`
-- matching tests and schema files
+- 対応する Schema と test
 
-Restricted files:
+明示指示なしに変更しない対象:
 
-- authority cutover
-- command dispatch enablement
-- credential handling
-- audit finalization
-- release evidence promotion
+- 権限境界の切替
+- 実外部コマンドの送信
+- 認証情報の取扱い
+- Audit の確定
+- リリース証拠への昇格
 
-Required tests:
+関連検証:
 
-- `cargo fmt --check`
-- `cargo test`
-- `python tooling/conformance_tests/run_conformance_skeleton.py`
-- `python tooling/release_runtime_assertions.py --check`
-- `python tooling/validate_all.py --python-only`
+```bash
+cd native/rust_helper
+cargo fmt --check
+cargo test
+cd ../..
+python3 tooling/conformance_tests/run_conformance_skeleton.py
+python3 tooling/release_runtime_assertions.py --check
+python3 tooling/validate_all.py --python-only
+```
 
-Failure handling:
+失敗は fail-closed に扱い、証拠を CONFIG / INTERNAL_STATE / LIVE_RUNTIME / EXTERNAL_EVIDENCE / FIXTURE の範囲に分類する。
 
-- Prefer fail-closed behavior.
-- Report evidence class accurately: CONFIG, INTERNAL_STATE, LIVE_RUNTIME, EXTERNAL_EVIDENCE, or FIXTURE.
+## 公開 asset変更
 
-### Public Asset Edit
-
-Allowed files:
+対象:
 
 - `public_assets/`
-- redacted proof summaries
-- screenshot indexes
-- hash indexes
+- 墨消し済み proof summary
+- 画面画像とハッシュの索引
 
-Restricted files:
+含めてはならないもの:
 
-- raw private evidence
-- local transcripts
-- private owner logs
-- machine-specific environment dumps
+- 未加工の非公開証拠
+- ローカル会話記録
+- owner 専用 log
+- machine 固有の environment dump
+- 利用者名、ホスト名、非公開経路、秘密情報
 
-Required tests:
+既存の保存 log、hash、墨消し済み evidence copy は、後日の実装状態に合わせて書き換えない。必要な更新は由来を保持した新しい公開 copy として行う。
 
-- public/private boundary scan
-- `python tooling/manifest.py --check`
-- `python tooling/release_gate_check.py` if the asset index contains release language
+## Release evidence変更
 
-Failure handling:
+release evidence の collector や説明を変更する場合でも、次を行ってはならない。
 
-- Redact local paths, usernames, hostnames, and secret-like strings.
-- Treat public proof assets as review material, not canonical release evidence.
+- `release_ready=true` を作る。
+- owner GO を記録する。
+- CONFIG / FIXTURE / public proof copy を installed-path evidence へ昇格する。
+- blocker を validator の根拠なく消す。
 
-### Release Evidence Edit
+必要な証拠を取得できない場合は、未検証または SUSPEND として報告する。
 
-Allowed files:
+## 完了報告
 
-- release evidence documentation
-- Windows collector scripts only with explicit rationale
+少なくとも次を区別する。
 
-Restricted files:
+1. 変更 file
+2. 実行 command
+3. 検証結果
+4. リリース関門の状態
+5. 残存 blocker
+6. `release_ready` の変更有無
+7. owner GO の変更有無
+8. public/private boundary の問題
+9. evidence file の作成・編集・copy の有無
 
-- `release_blockers.registry.json`
-- `tooling/windows_release_evidence.py`
-- `tooling/evidence_bundle.py`
-- `release_ready` flow
-- owner GO flow
-
-Required tests:
-
-- `python tooling/windows_release_evidence.py`
-- `python tooling/evidence_bundle.py --check`
-- `python tooling/release_runtime_assertions.py --check`
-- `python tooling/release_gate_check.py`
-- `python tooling/validate_all.py --python-only`
-
-Failure handling:
-
-- Do not fabricate missing evidence.
-- Do not convert CONFIG or FIXTURE evidence into installed-path proof.
-- Report strict release status honestly.
+実行していない検証を成功と報告せず、公開 package の成立を完成製品 release と同一視しない。

@@ -1,37 +1,34 @@
-# Windows Proof Summary
+# Windows 証拠の公開概要
 
-Windows-first desktop evidence has been collected in the private development repository and converted into a sanitized public proof pack.
+Windows-first desktop の実測結果から、公開可能な範囲だけを墨消し済み proof pack として収録している。
 
-The public proof pack contains redacted review copies derived from measured Windows installed-path evidence. These copies are not canonical release evidence and do not close completed product release blockers in this public repository.
-
-Public proof location:
+公開場所:
 
 ```text
 public_assets/windows_proof_pack/
 ```
 
-Included public material:
+収録対象:
 
-- proof index
-- validation log excerpts
-- build validation log excerpts
-- artifact and evidence hashes
-- redacted evidence copies where safe
+- 証拠索引
+- validation log の保存抜粋
+- build validation log の保存抜粋
+- 成果物と証拠のハッシュ
+- 公開可能な墨消し済み JSON copy
 
-Excluded material:
+収録しない対象:
 
 - raw `release_evidence/`
-- local user paths
-- hostnames
-- full environment dumps
-- private transcripts
-- owner-only logs
+- local user path と hostname
+- environment dump 全体
+- 非公開会話記録
+- owner 専用 log と判断記録
 
-Release status:
+この proof pack は公開レビュー用の非正本 copy である。内容を canonical release evidence として再入力したり、owner GO や `release_ready=true` の根拠にしたりしてはならない。
 
-- item: proof pack is review evidence, not owner GO
+- item: proof pack は owner GO ではない
   classification: release_blocker
   registry_id: owner_go
-  reason: strict release requires explicit owner approval
-  required_action: keep public proof assets separate from release-ready claims
+  reason: strict release は公開 copy と別に明示的な owner Approval を必要とする。
+  required_action: 公開 proof asset と完成製品 release claim を分離する。
   blocks_release: yes
