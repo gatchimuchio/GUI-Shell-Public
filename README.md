@@ -4,7 +4,8 @@
 
 **A Windows-first desktop Runtime Operation Shell that keeps authority behind explicit contracts — not hidden UI state.**
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Software License: Apache-2.0](https://img.shields.io/badge/Software-Apache--2.0-blue.svg)](LICENSE-APACHE-2.0)
+[![Documentation License: CC BY 4.0](https://img.shields.io/badge/Documentation-CC%20BY%204.0-lightgrey.svg)](LICENSE-CC-BY-4.0)
 [![Status](https://img.shields.io/badge/status-pre--release%20(0.1.0--phase0)-orange)](release_blockers.registry.json)
 [![Platform](https://img.shields.io/badge/platform-Windows--first-blue)](#windows-first-scope)
 [![Built with](https://img.shields.io/badge/built%20with-Flutter%20%C2%B7%20Rust%20%C2%B7%20Python-informational)](#architecture)
@@ -219,7 +220,14 @@ This is why the repo was built by an LLM in the first place: if an agent can con
 
 ## License
 
-[MIT](LICENSE) © 2026 GUI Shell contributors.
+This repository separates licenses by artifact class:
+
+- Source code, tests, tools, and other software components: [Apache License 2.0](LICENSE-APACHE-2.0)
+- Specifications, designs, README files, and other documentation or intellectual works: [Creative Commons Attribution 4.0 International](LICENSE-CC-BY-4.0)
+
+This is not an elective dual license for every file. See [LICENSE](LICENSE) for the exact scope and [NOTICE](NOTICE) for attribution and third-party material handling.
+
+© 2026 がっちむち♂
 
 ---
 ---
@@ -408,4 +416,11 @@ Phase B のオーナー起動パス（`scripts/launch_owner_desktop.sh`）は `Q
 
 ## ライセンス
 
-[MIT](LICENSE) © 2026 GUI Shell contributors.
+本リポジトリは成果物の種類ごとにライセンスを分離します。
+
+- ソースコード、テスト、ツールその他のソフトウェア構成物：[Apache License 2.0](LICENSE-APACHE-2.0)
+- 仕様、設計、READMEその他の文書・知的成果物：[Creative Commons Attribution 4.0 International](LICENSE-CC-BY-4.0)
+
+これは、すべてのファイルについていずれかを任意に選べるデュアルライセンスではありません。正確な適用範囲は [LICENSE](LICENSE)、帰属表示と第三者由来物の扱いは [NOTICE](NOTICE) を参照してください。
+
+© 2026 がっちむち♂

@@ -80,7 +80,7 @@
     },
     {
       "path": "CHANGELOG.md",
-      "sha256": "8a38a33e9899bcd757574ec83754080fe414af58fb69104efcffad276aae5cc6"
+      "sha256": "b7d903cd904f2ac03c8d94afd0579bd645df2e1e5c2fde58805823bec603bd9b"
     },
     {
       "path": "CLAIM.md",
@@ -100,11 +100,23 @@
     },
     {
       "path": "LICENSE",
-      "sha256": "44b5106631e1551b963c767d73ad38949c6890e47b9a17e6543546cfadf64f96"
+      "sha256": "b0e07c0d741166e333759d8352bb403742878d5514474a8cad77c483103218be"
+    },
+    {
+      "path": "LICENSE-APACHE-2.0",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    {
+      "path": "LICENSE-CC-BY-4.0",
+      "sha256": "b80efe348d5085aa93b894fce39d4aa2d7dc9616030fdadfd5dde9ea5e474104"
     },
     {
       "path": "MOBILE_STATUS.md",
       "sha256": "67c6e56d440155005ea0480d17c363769227639cd2a15f48877c9a36ff8f1b95"
+    },
+    {
+      "path": "NOTICE",
+      "sha256": "e72da805f9e728fa5b87e582d2567f21b50b2553470b0a6cf6799d7240bcc84a"
     },
     {
       "path": "QUICKSTART.md",
@@ -112,7 +124,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "9d57738077d7c016c0ae9024c48a3afd9a98fb8b0653b158fe895dcbc2b2d37d"
+      "sha256": "ed2f0e06a278791ab6ce4340a5e98a8429725a43b06811dd33e0a3e7cc3feb92"
     },
     {
       "path": "RELEASE_CHECKLIST.md",
@@ -788,7 +800,7 @@
     },
     {
       "path": "native/rust_helper/Cargo.toml",
-      "sha256": "41419f2bc3dc6e97651f5969351b64d68658332a9f3b89e449e2ff699d388b69"
+      "sha256": "19dd5e99c5bcbd38ac6a0772243a5795beefdc6fe5672e9e2ebf20ceeb4ce068"
     },
     {
       "path": "native/rust_helper/README.md",

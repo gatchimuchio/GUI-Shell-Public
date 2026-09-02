@@ -13,6 +13,7 @@
 - Strengthened schema validation with valid contract examples and invalid fixture rejection.
 - Added Tauri fallback research note.
 - Added MIT license.
+- Replaced the repository-wide MIT license with artifact-class licensing aligned to MINIDORA commit `5d0c01f0f85ea23d1002819f978c7de9ddd4a3d0`: Apache-2.0 for software and CC-BY-4.0 for documentation. This is not an elective dual license.
 - Replaced ambiguous BLUE-TANUKI freeze wording with Phase 0 reference runtime contract target wording.
 - Added negative contract fixtures for adapter authority escalation, unsafe update policy, approval bad hash, and content exposure default full.
 - Added conformance coverage that drives checks from `examples/contracts/*.valid.json`.
